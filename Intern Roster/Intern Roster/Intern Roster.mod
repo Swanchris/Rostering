@@ -38,8 +38,33 @@ forall(i in Intern, k in Week)
   sum(j in Rotation)x[i][j][k] <= 1;
 
 ///Intern Rotation Completiion Constraint (everyone must do one of the rotations) 
-forall(i in Intern, j in Rotation)
-  sum(k in Week)x[i][j][k] >= 1;
+forall(i in Intern)
+  sum(k in Week)x[i]["CPD-G"][k] >= 8;
+forall(i in Intern)
+  sum(k in Week)x[i]["CPD-V"][k] >= 4;
+forall(i in Intern)
+  sum(k in Week)x[i]["AP"][k] >= 4;
+forall(i in Intern)
+  sum(k in Week)x[i]["MIC"][k] >= 4;  
+forall(i in Intern)
+  sum(k in Week)x[i]["MCH"][k] >= 2;
+forall(i in Intern)
+  sum(k in Week)x[i]["CPCa"][k] >= 3;
+forall(i in Intern)
+  sum(k in Week)x[i]["CPM"][k] >= 3;
+forall(i in Intern)
+  sum(k in Week)x[i]["CPK"][k] >= 2;
+forall(i in Intern)
+  sum(k in Week)x[i]["IP"][k] >= 4;
+forall(i in Intern)
+  sum(k in Week)x[i]["DISP"][k] >= 3;
+forall(i in Intern)
+  sum(k in Week)x[i]["CPC"][k] >= 5;
+forall(i in Intern)
+  sum(k in Week)x[i]["QUM"][k] == 1;
+forall(i in Intern)
+  sum(k in Week)x[i]["H"][k] == 1;
+
   
 ///Intern Rotation Capacity Constraint
 forall(k in Week)
@@ -68,25 +93,25 @@ forall(k in Week)
   sum(i in Intern)x[i]["QUM"][k] <= 1;
 forall(k in Week)
   sum(i in Intern)x[i]["H"][k] <= 1;
-forall(k in Week)
-  sum(i in Intern)x[i]["A/L_1"][k] == 11;
-forall(k in Week)
-  sum(i in Intern)x[i]["A/L_2.1"][k] == 6;
-forall(k in Week)
-  sum(i in Intern)x[i]["A/L_2.2"][k] == 5;
+
+
+//forall(k in Week)
+  ///sum(i in Intern)x[i]["A/L_2.1"][k] == 6;
+///forall(k in Week)
+  ///sum(i in Intern)x[i]["A/L_2.2"][k] == 5;
   
   
 ///Intern Rotation Duration Constraint (How long the rotation goes for)  
 forall(i in Intern)
-  sum(j in Rotation, k in Week) Duration[j]*x[i][j][k] >= 47;
+  sum(j in Rotation, k in Week) Duration[j]*x[i][j][k] >= sum(j in Rotation) Duration[j];
   
 ///Intern Leave Constraint
-forall(i in Intern)
-  sum(k in Week) x[i]["A/L_1"][k] ==1;
-forall(i in Intern)
-  sum(k in Week) x[i]["A/L_2.1"][k] ==1;
-forall(i in Intern)
-  sum(k in Week) x[i]["A/L_2.2"][k] ==1;
+//forall(i in Intern)
+  //sum(k in Week) x[i]["A/L_1"][k] ==1;
+//forall(i in Intern)
+  //sum(k in Week) x[i]["A/L_2.1"][k] ==1;
+//forall(i in Intern)
+  //sum(k in Week) x[i]["A/L_2.2"][k] ==1;
 
 
 
