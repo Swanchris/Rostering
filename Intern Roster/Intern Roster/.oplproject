@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="Tester" category="opl">
+		<config default="true" name="Configuration1" category="opl">
 			<ref name="Intern Roster.mod" type="model">
 			</ref>
 			<ref name="Intern Roster.dat" type="data">
