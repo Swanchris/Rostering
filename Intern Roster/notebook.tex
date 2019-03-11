@@ -319,19 +319,21 @@ j & Rotation Label & Duration & Maximum Interns per week\tabularnewline
 
     \subsection{Decision Variables}\label{decision-variables}
 
-    \(x_{jk}^i\)
-
-\(C_{ij}\)
-
-\(y_{j,k + \alpha}^i \quad\) where \(\quad \alpha \in \mathbb{Z}\)
-
-\(z_k\)
+    \(x_{jk}^i\) where \(i\) is an intern, rostered in area \(j\), on week
+\(k\)
 
     \subsection{Objective Function}\label{objective-function}
 
-    \[ \text{max} \sum_i \; \sum_j \; \sum_k C_{ij}x_{jk}^i\]
+    \[ \text{maximise} \sum_i \; \sum_j \; \sum_k x_{jk}^i \quad \forall i \; \forall j \; \forall k\]
 
     \subsection{Constraints}\label{constraints}
+
+    \emph{Intern Physical Person Constraint}
+
+    That one person can only be in one place at once:
+
+\[\sum_j \; x_{jk}^i \leq 1 \quad 
+\forall i \; \forall k \]
 
     \emph{Intern Rotation Completion Constraint}
 
@@ -340,21 +342,12 @@ Let \(x_{jk}^i = 1\) if person \(i\) is doing rotation \(j\) for week
 
 \[\sum_k x_{jk}^i \geq 1 \quad  \forall i ,\quad \forall j\]
 
-    \(x_{1,1}^1 + x_{1,2}^1 + \cdots + x_{1,54}^1 \geq 1\)
-
-\(x_{1,1}^2 + x_{1,2}^2 + \cdots + x_{1,54}^2 \geq 1\)
-
-\(\vdots\)
-
-\(x_{1,1}^{11} + x_{1,2}^{11} + \cdots + x_{1,54}^{11} \geq 1\)
-
-\(\vdots\)
-
-\(\vdots\)
-
-\(x_{16,1}^{11} + x_{16,2}^{11} + \cdots + x_{16,54}^{11} \geq 1\)
+This constraint my need to change to come in line with our duration
+requirements.
 
     \emph{Intern Rotation Capacity Constraint}
+
+The limit of how many interns can work in an area at once
 
 \[\sum_{i}  x_{1,k}^i \leq 2  \quad  \; \forall k\]
 \[\sum_{i}  x_{2,k}^i \leq 1  \quad  \; \forall k\]
@@ -369,11 +362,35 @@ Let \(x_{jk}^i = 1\) if person \(i\) is doing rotation \(j\) for week
 \[\sum_{i}  x_{11,k}^i \geq 0  \quad  \; \forall k\]
 \[\sum_{i}  x_{12,k}^i \leq 1  \quad  \; \forall k\]
 \[\sum_{i}  x_{13,k}^i \leq 1  \quad  \; \forall k\]
+
+The constraints below are currently incorrect as they do not accurately
+express what is desired: That all interns should have 1 week's leave all
+together and then a second week's leave in two groups.
+
 \[\sum_{i}  x_{14,k}^i = 11  \quad  \; \forall k\]
 \[\sum_{i=1}^6  x_{15,k}^i = 6  \quad  \; \forall k\]
 \[\sum_{i=7}^{11}  x_{16,k}^i = 5  \quad  \; \forall k\]
 
     \emph{Intern Rotation Duration Constraint}
+
+This is the major point at which our current model falls apart. We
+require interns to spend a period of time in each rotation in
+\textbf{consecutive} blocks. Mathematically, the below system works,
+however it becomes flawed when trying to use it in CPLEX. This was an
+issue for two reasons: 1. The inability to input decision variables into
+"if" statements 2. Our initial use of the \(k\) values as strings.
+
+To combat the 2. issue, we attempted to change \(k\) to an integer
+value, however this resulted in its inability to be used in the same
+fashion in \(x_{jk}^i\).
+
+We are currently re-evaluating our options. One that was explored was
+that we might just ascribe weights to each Rotation (this being the
+duration), and use a binary variable instead of \(x_{ij}\). However this
+limits us in the particular regard that we would not be able to specify
+specific weeks for availability - an aspect of flexibility integral as
+we refine the model. There are to be a number of final constraints still
+to be added which depend on the model having this quality.
 
 \[\sum_{\alpha = 0}^7 y_{1,k + \alpha}^i = 8 \; \text{  if  }\; x_{1,k}^i = 1\]
 
@@ -407,13 +424,25 @@ Let \(x_{jk}^i = 1\) if person \(i\) is doing rotation \(j\) for week
 
 \[ y_{16,k}^i = 1 \; \text{  if  }\; x_{16,k}^i = 1\]
 
+It should be noted that were the above constraints valid in the model,
+additional decision variables would be needed.
+
     \emph{Intern Leave Constraint}
+
+These contraints are currently flawed with our current model -
+particular as one is unable to use decision variables in 'if' statements
+and conditions
 
 \[\sum_i x_{14,k}^i = 11z_k \quad \text{if} \quad \sum_k z_k =1\]
 
 \[\sum_i x_{15,k}^i = 6z_k \quad \text{if} \quad \sum_k z_k =1\]
 
 \[\sum_i x_{16,k}^i = 5z_k \quad \text{if} \quad \sum_k z_k =1\]
+
+Additionally, after analysis we have deducted that if these constraints
+were to be working properly, there would be no need for those currently
+causing issue under the \emph{Intern Rotation Capacity Constraint}. We
+believe that those can be manipulated with little trouble however.
 
 
     % Add a bibliography block to the postdoc
