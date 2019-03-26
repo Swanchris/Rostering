@@ -16,17 +16,17 @@ range	Rotation = 1..16;
 dvar boolean	x[Intern][Rotation][Week];
 
 
-dvar boolean	y1[Week];
-dvar boolean	y2[Week];
-dvar boolean	y3[Week];
-dvar boolean	y4[Week];
-dvar boolean	y5[Week];
-dvar boolean	y6[Week];
-dvar boolean	y7[Week];
-dvar boolean	y8[Week];
-dvar boolean	y9[Week];
-dvar boolean	y10[Week];
-dvar boolean	y11[Week];
+dvar boolean	y1[Intern][Week];
+dvar boolean	y2[Intern][Week];
+dvar boolean	y3[Intern][Week];
+dvar boolean	y4[Intern][Week];
+dvar boolean	y5[Intern][Week];
+dvar boolean	y6[Intern][Week];
+dvar boolean	y7[Intern][Week];
+dvar boolean	y8[Intern][Week];
+dvar boolean	y9[Intern][Week];
+dvar boolean	y10[Intern][Week];
+dvar boolean	y11[Intern][Week];
 
 int				M = 1000;
 
@@ -37,9 +37,15 @@ maximize z;
 
 subject to{
 
-//forall(i in Intern, j in Rotation, k in Week)
-//  x[i][j][k] == w[i][j][k];
-
+//Orientation Constraint
+//forall(i in Intern)
+//  sum(k in 1..4)x[i][4][k] ==1;
+  
+//forall(i in Intern)
+//  sum(k in 1..4)x[i][9][k] ==1;  
+  
+//forall(i in Intern)
+//  sum(k in 1..4)x[i][10][k] ==2;
 
 ///Intern Physical Constraint (can only be in one place at a time)
 forall(i in Intern, k in Week)
@@ -137,83 +143,59 @@ forall(k in Week)
 
 //Intern Rotation Duration Constraint
 
-sum(k in 1..47)y1[k] ==1;
-
+forall(i in Intern)
+  sum(k in 1..47)y1[i][k] ==1;
 forall(i in Intern, k in 1..47)
-  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[k]);
-forall(i in Intern, k in 1..47)
-  x[i][1][k] <= M*y1[k];
+  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[i][k]);
 
-sum(k in 1..51)y2[k] ==1;
+forall(i in Intern)
+  sum(k in 1..51)y2[i][k] ==1;
+forall(i in Intern, k in 1..51)
+  4 -(sum(a in 0..3)x[i][2][k + a]) <= M*(1-y2[i][k]);
+
+forall(i in Intern)
+  sum(k in 1..51)y3[i][k] ==1;
+forall(i in Intern, k in 1..51)
+  4 -(sum(a in 0..3)x[i][3][k + a]) <= M*(1-y3[i][k]);
   
+forall(i in Intern)
+  sum(k in 1..51)y4[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][2][k + a]) <= M*(1-y2[k]);
-forall(i in Intern, k in 1..51)
-  x[i][2][k] <= M*y2[k];
-  
-sum(k in 1..51)y3[k] ==1;  
-  
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][3][k + a]) <= M*(1-y3[k]);
-forall(i in Intern, k in 1..51)
-  x[i][3][k] <= M*y3[k];
+  4 -(sum(a in 0..3)x[i][4][k + a]) <= M*(1-y4[i][k]);
 
-sum(k in 1..51)y4[k] ==1;
-
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][4][k + a]) <= M*(1-y4[k]);
-forall(i in Intern, k in 1..51)
-  x[i][4][k] <= M*y4[k];
-
-sum(k in 1..53)y5[k] ==1;
-
+forall(i in Intern)
+  sum(k in 1..53)y5[i][k] ==1;
 forall(i in Intern, k in 1..53)
-  2 -(sum(a in 0..1)x[i][5][k + a]) <= M*(1-y5[k]);
+  2 -(sum(a in 0..1)x[i][5][k + a]) <= M*(1-y5[i][k]);
+
+forall(i in Intern)
+  sum(k in 1..52)y6[i][k] ==1;
+forall(i in Intern, k in 1..52)
+  3 -(sum(a in 0..2)x[i][6][k + a]) <= M*(1-y6[i][k]);
+
+forall(i in Intern)
+  sum(k in 1..52)y7[i][k] ==1;
+forall(i in Intern, k in 1..52)
+  3 -(sum(a in 0..2)x[i][7][k + a]) <= M*(1-y7[i][k]);
+
+forall(i in Intern)
+  sum(k in 1..53)y8[i][k] ==1;
 forall(i in Intern, k in 1..53)
-  x[i][5][k] <= M*y5[k];
+  2 -(sum(a in 0..1)x[i][8][k + a]) <= M*(1-y8[i][k]);
 
-sum(k in 1..52)y6[k] ==1;
-
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][6][k + a]) <= M*(1-y6[k]);
-forall(i in Intern, k in 1..52)
-  x[i][6][k] <= M*y6[k];
-
-sum(k in 1..52)y7[k] ==1;
-
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][7][k + a]) <= M*(1-y7[k]);
-forall(i in Intern, k in 1..52)
-  x[i][7][k] <= M*y7[k];
-
-sum(k in 1..53)y8[k] ==1;
-
-forall(i in Intern, k in 1..53)
-  2 -(sum(a in 0..1)x[i][8][k + a]) <= M*(1-y8[k]);
-forall(i in Intern, k in 1..53)
-  x[i][8][k] <= M*y8[k];
-
-sum(k in 1..51)y9[k] ==1;
-
+forall(i in Intern)
+  sum(k in 1..51)y9[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[k]);
-forall(i in Intern, k in 1..51)
-  x[i][9][k] <= M*y9[k];
+  4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
 
-sum(k in 1..52)y10[k] ==1;
-
+forall(i in Intern)
+  sum(k in 1..52)y10[i][k] ==1;
 forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][10][k + a]) <= M*(1-y10[k]);
-forall(i in Intern, k in 1..52)
-  x[i][10][k] <= M*y10[k];
+  3 -(sum(a in 0..2)x[i][10][k + a]) <= M*(1-y10[i][k]);
 
-sum(k in 1..50)y11[k] ==1;
-
+forall(i in Intern)
+  sum(k in 1..50)y11[i][k] ==1;
 forall(i in Intern, k in 1..50)
-  5 -(sum(a in 0..4)x[i][11][k + a]) <= M*(1-y11[k]);
-forall(i in Intern, k in 1..50)
-  x[i][11][k] <= M*y11[k];
-
-
+  5 -(sum(a in 0..4)x[i][11][k + a]) <= M*(1-y11[i][k]);
 
 }

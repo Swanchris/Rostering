@@ -114,7 +114,8 @@ forall(k in Week)
 forall(k in Week)
   sum(i in Intern)x[i][13][k] <= 1;
   
-//Linking w and x  
+//Linking w and x?
+  
 //forall(i in Intern, j in Rotation, k in Week)
  // 1-x[i][j][k]<= M*y;
 //forall(i in Intern, j in Rotation, k in Week)
@@ -127,6 +128,7 @@ forall(k in Week)
 
 //forall(i in Intern, j in Rotation, k in Week)
 //  x[i][j][k] == w[i][j][k];
+
 
 //Intern Rotation Duration Constraint
 forall(i in Intern, k in 1..47)
