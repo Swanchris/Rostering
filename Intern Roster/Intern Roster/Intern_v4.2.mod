@@ -6,7 +6,7 @@
  
 range	Week = 1..54;
 range	Intern = 1..11;
-range	Rotation = 1..16;
+range	Rotation = 1..18;
 
 
 dvar boolean	x[Intern][Rotation][Week];
@@ -23,6 +23,10 @@ dvar boolean	y8[Intern][Week];
 dvar boolean	y9[Intern][Week];
 dvar boolean	y10[Intern][Week];
 dvar boolean	y11[Intern][Week];
+dvar boolean	y4_1[Intern][Week];
+dvar boolean	y13[Intern][Week];
+dvar boolean	y14[Intern][Week];
+dvar boolean	y15[Intern][Week];
 
 int				M = 1000;
 
@@ -33,15 +37,40 @@ maximize z;
 
 subject to{
 
+//Rotation 17 will be for the extra MIC rotation
+//let Rotation 18 be Weeks 1-4 when Interns 7-11 have not yet begun and
+// Weeks 51-54 when Intern 1-6 have finished
+
+forall(i in 1..6)
+  sum(k in 51..54)x[i][18][k] ==4;
+  
+forall(i in 7..11)
+  sum(k in 1..4)x[i][18][k] ==4;
+
+forall(i in 1..6)
+  sum(k in 1..50)x[i][18][k] ==0;
+  
+forall(i in 7..11)
+  sum(k in 5..54)x[i][18][k] ==0;
+  
 //Orientation Constraint
-//forall(i in Intern)
+//forall(i in 1..6)
 //  sum(k in 1..4)x[i][4][k] ==1;
   
-//forall(i in Intern)
-//  sum(k in 1..4)x[i][9][k] ==1;  
+//forall(i in 7..11)
+//  sum(k in 5..8)x[i][4][k] ==1;
   
-//forall(i in Intern)
+//forall(i in 1..6)
+//  sum(k in 1..4)x[i][9][k] ==1;  
+
+//forall(i in 7..11)
+//  sum(k in 5..8)x[i][9][k] ==1;
+  
+//forall(i in 1..6)
 //  sum(k in 1..4)x[i][10][k] ==2;
+  
+//forall(i in 7..11)
+//  sum(k in 5..8)x[i][10][k] ==2;
 
 ///Intern Physical Constraint (can only be in one place at a time)
 forall(i in Intern, k in Week)
@@ -58,7 +87,10 @@ forall(i in Intern)
   sum(k in Week)x[i][3][k] == 4;
   
 forall(i in Intern)
-  sum(k in Week)x[i][4][k] >= 4;  
+  sum(k in Week)x[i][4][k] >= 2;
+    
+forall(i in Intern)
+  sum(k in Week)x[i][17][k] >= 2;
   
 forall(i in Intern)
   sum(k in Week)x[i][5][k] >= 2;
@@ -111,6 +143,9 @@ forall(k in Week)
   sum(i in Intern)x[i][4][k] <= 1;
   
 forall(k in Week)
+  sum(i in Intern)x[i][17][k] <= 1;  
+  
+forall(k in Week)
   sum(i in Intern)x[i][5][k] <= 1;
   
 forall(k in Week)
@@ -155,9 +190,14 @@ forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][3][k + a]) <= M*(1-y3[i][k]);
   
 forall(i in Intern)
-  sum(k in 1..51)y4[i][k] ==1;
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][4][k + a]) <= M*(1-y4[i][k]);
+  sum(k in 1..53)y4[i][k] ==1;
+forall(i in Intern, k in 1..53)
+  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
+  
+forall(i in Intern)
+  sum(k in 1..53)y4_1[i][k] ==1;
+forall(i in Intern, k in 1..53)
+  2 -(sum(a in 0..1)x[i][17][k + a]) <= M*(1-y4_1[i][k]);
 
 forall(i in Intern)
   sum(k in 1..53)y5[i][k] ==1;
@@ -193,5 +233,15 @@ forall(i in Intern)
   sum(k in 1..50)y11[i][k] ==1;
 forall(i in Intern, k in 1..50)
   5 -(sum(a in 0..4)x[i][11][k + a]) <= M*(1-y11[i][k]);
+
+//Intern Leave Constraints
+
+//ooooh damn these are tricky
+
+//forall(i in Intern)
+//  sum(k in 1..54)y13[i][k] ==1;
+//forall(k in Week)
+//sum(i in Intern)(11*y13[i][k] -x[i][13][k]) <= M*(1-y13[i][k]);
+
 
 }
