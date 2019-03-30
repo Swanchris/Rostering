@@ -25,6 +25,8 @@ dvar boolean	y10[Intern][Week];
 dvar boolean	y11[Intern][Week];
 dvar boolean	y4_1[Intern][Week];
 
+dvar boolean	L1[Week];
+
 int				M = 1000;
 
 dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
@@ -115,10 +117,14 @@ forall(i in Intern)
   
 forall(i in Intern)
   sum(k in Week)x[i][13][k] == 1;
+
+//These constraint are the binders for the leave constraints
   
 forall(i in Intern)
   sum(k in Week)x[i][14][k] == 1;
 
+//These for will need to be more flexible than they currently are
+ 
 forall(i in 1..6)
   sum(k in Week)x[i][15][k] ==1;
 
@@ -237,6 +243,54 @@ forall(i in Intern, k in 1..50)
   5 -(sum(a in 0..4)x[i][11][k + a]) <= M*(1-y11[i][k]);
 
 //Intern Leave Constraints
+
+sum(k in 9..50)L1[k] ==1;
+forall(k in 9..50)
+  11 - (sum(i in Intern)x[i][14][k]) <= M*(1-L1[k]);
+
+//Avoidance Constraint (1 week rotations during seminar weeks/public holidays)
+
+forall(i in Intern, j in 12..13)
+  x[i][j][5] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][8] ==0;  
+
+forall(i in Intern, j in 12..13)
+  x[i][j][11] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][15] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][17] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][18] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][21] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][26] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][28] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][33] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][43] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][45] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][46] ==0;
+
+forall(i in Intern, j in 12..13)
+  x[i][j][49] ==0;
 
 
 }

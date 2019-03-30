@@ -5,6 +5,10 @@
 			<ref name="Intern_v4.2.mod" type="model">
 			</ref>
 		</config>
+		<config default="false" name="Configuration2" category="opl">
+			<ref name="Intern_v4.3.1.mod" type="model">
+			</ref>
+		</config>
 	</configs>
 	
 </project>
