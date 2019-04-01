@@ -2,9 +2,7 @@
 	<version>1.0</version>
 	<configs>
 		<config default="true" name="Configuration1" category="opl">
-			<ref name="ADO Roster.mod" type="model">
-			</ref>
-			<ref name="ADO Roster.dat" type="data">
+			<ref name="ADO_Spec_Med_v1.1.mod" type="model">
 			</ref>
 		</config>
 	</configs>

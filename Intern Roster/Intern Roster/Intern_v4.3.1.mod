@@ -33,7 +33,7 @@ int				M = 1000;
 
 dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
 
-maximize z;
+minimize z;
 
 
 subject to{
@@ -155,7 +155,7 @@ forall(i in Intern)
 
 //Orientation
 forall(i in Intern)
-  sum(k in Week)x[i][16][k] ==4;
+  sum(k in Week)x[i][16][k] ==0;
 
 
 ///Intern Rotation Capacity Constraint
@@ -271,12 +271,12 @@ forall(k in 9..50)
   11 - (sum(i in Intern)x[i][14][k]) <= M*(1-L1[k]);
 
 //Week 2
-sum(k in Week)L2[k] ==1;
-sum(k in Week)L3[k] ==1;
-forall(k in Week)
-  sum(i in Intern)x[i][15][k] == 6*L2[k];
-forall(k in Week)
-  sum(i in Intern)x[i][15][k] == 6*L3[k];
+//sum(k in Week)L2[k] ==1;
+//sum(k in Week)L3[k] ==1;
+//forall(k in Week)
+//  sum(i in Intern)x[i][15][k] == 6*L2[k];
+//forall(k in Week)
+//  sum(i in Intern)x[i][15][k] == 6*L3[k];
 
 //Avoidance Constraint (1 week rotations during seminar weeks/public holidays)
 
