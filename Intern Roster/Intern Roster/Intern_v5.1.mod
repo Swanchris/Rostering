@@ -146,7 +146,7 @@ forall(i in Intern)
 
 //CDP-G (j=1)
 forall(k in Week)
-  sum(i in Intern)x[i][1][k] <= 2;
+  sum(i in Intern)x[i][1][k] >= 0;
 
 //CDP-V (j=2)  
 forall(k in Week)
