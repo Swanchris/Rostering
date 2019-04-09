@@ -26,7 +26,7 @@ dvar boolean	y11[Intern][Week];
 
 
 dvar boolean	L1[Week];
-dvar boolean	p[Week];
+dvar boolean	L2[Week];
 dvar boolean	L3[Week];
 
 int				M = 1000;
@@ -210,7 +210,6 @@ forall(i in Intern)
   sum(k in 1..47)y1[i][k] ==1;
 forall(i in Intern, k in 1..47)
   8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[i][k]);
-  
 //forall(i in Intern, k in 1..47)
 //  2 -(sum(a in 0..10)x[1 + a][1][k]) <= M*(1-y1[i][k]);
 
@@ -291,9 +290,9 @@ forall(k in 9..50)
 //sum(k in 9..50)L2[k] ==1;
 //sum(k in 9..50)L3[k] ==1;
 //forall(k in 9..50)
-//  sum(i in Intern)x[i][15][k] == 6*L2[k];
+//  6 - (sum(i in Intern)x[i][15][k]) <= M*(1 -L2[k]);
 //forall(k in 9..50)
-//  sum(i in Intern)x[i][15][k] == 6*L3[k];
+//  5 - (sum(i in Intern)x[i][15][k]) <= M*(1 - L3[k]);
 
 //Avoidance Constraint (1 week rotations during seminar weeks/public holidays)
 
