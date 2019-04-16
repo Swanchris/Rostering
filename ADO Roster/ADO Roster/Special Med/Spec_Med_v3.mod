@@ -25,15 +25,15 @@
  
  //Objective Function
  
-dexpr int	z = sum(j in Weekday, k in Job) y[10][j][k];
+dexpr int	z = sum(i in Pharmacist, j in Weekday, k in Job) y[i][j][k];
 
- minimize z;
+ maximize z;
  
  //Constraints
  
  subject to{
  
-//Every full-time staff memeber (EFT = 1) requires 1 ADO per calender month
+ //Every full-time staff memeber (EFT = 1) requires 1 ADO per calender month
  
 forall(i in 3..8)
    sum(j in 1..21) y[i][j][19] ==1;
@@ -54,21 +54,16 @@ forall(i in 3..8)
    sum(j in 104..122) y[i][j][19] ==1;
    
 
-
-
 //Physical Limitation Constraint
 
-forall(i in 1..9, j in Weekday)
+forall(i in Pharmacist, j in Weekday)
   sum(k in 1..24) y[i][j][k] <= 1;
-forall(j in Weekday)
-  sum(i in 3..8) y[i][j][19] <= 1;
 
 //Job Completion Constraint
 
-forall(j in Weekday, k in 1..7)
+forall(j in Weekday, k in 1..8)
   sum(i in Pharmacist) y[i][j][k] == 1;
-forall(j in Weekday)
-  sum(i in Pharmacist) y[i][j][9] == 1;
+
 
 
   
@@ -141,13 +136,11 @@ C3[22] == 1;
 y[3][22][20] == 1;
 
 sum(j in 99..108) C3[j] == 10;
-sum(j in 99..108) y[3][j][20] == 10;
-
-
+sum(j in 99..108) y[3][j][18] == 10;
 
 ////Total Days Off:
 
-sum(j in Weekday) C3[j] == 20;
+sum(j in Weekday) C3[j] == 14;
 
 
 ///for i = 4;
@@ -157,7 +150,7 @@ sum(j in 67..71) y[4][j][20] == 5;
 
 ////Total Days Off:
 
-sum(j in Weekday) C4[j] == 11;
+sum(j in Weekday) C4[j] == 5;
 
 
 ///for i = 5;
@@ -167,7 +160,7 @@ sum(j in 84..88) y[5][j][20] == 5;
 
 ////Total Days Off:
 
-sum(j in Weekday) C5[j] == 11;
+sum(j in Weekday) C5[j] == 5;
 
 
 ///for i = 6;
@@ -180,7 +173,7 @@ sum(j in 72..75) y[6][j][20] ==4;
 
 ////Total Days Off:
 
-sum(j in Weekday) C6[j] == 23;
+sum(j in Weekday) C6[j] == 17;
 
 
 ///for i = 7;
@@ -190,7 +183,7 @@ sum(j in 4..8) y[7][j][20] == 5;
 
 ////Total Days Off:
 
-sum(j in Weekday) C7[j] == 11;
+sum(j in Weekday) C7[j] == 5;
 
 
 ///for i = 8;

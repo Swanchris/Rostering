@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="false" name="Configuration1" category="opl">
-			<ref name="Spec_Med_v3.mod" type="model">
+		<config default="false" name="Special Med" category="opl">
+			<ref name="Special Med/Spec_Med_v3.2.mod" type="model">
 			</ref>
 		</config>
-		<config default="true" name="Configuration2" category="opl">
-			<ref name="Spec_Med_v3.2.mod" type="model">
-			</ref>
-		</config>
-		<config default="false" name="Configuration3" category="opl">
-			<ref name="spare2.mod" type="model">
+		<config default="true" name="Critical Care" category="opl">
+			<ref name="Critical Care/Crit_Care_v1.1.mod" type="model">
 			</ref>
 		</config>
 	</configs>
