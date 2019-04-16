@@ -286,6 +286,8 @@ sum(k in 9..50)L2[k] ==1;
 
 forall(k in 9..50)
   sum(i in Intern)x[i][15][k] == 6*L2[k];
+
+sum(k in 9..50)L3[k] ==1;  
  
 forall(k in 9..50)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
