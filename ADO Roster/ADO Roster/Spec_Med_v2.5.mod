@@ -4,7 +4,7 @@
  * Creation Date: 1 Apr 2019 at 5:25:43 pm
  *********************************************/
 
- range	Pharmacist = 1..10;
+ range	Pharmacist = 1..9;
  range	Weekday = 1..122;
  range	Job = 1..24;
  
@@ -64,12 +64,12 @@
  dvar boolean	C7_Prof[Weekday];
  dvar boolean	C7_Rost[Weekday];
  
- dvar boolean	C10_Leave[Weekday];
- dvar boolean	C10_Late[Weekday];
- dvar boolean	C10_Lieu[Weekday];
- dvar boolean	C10_Long[Weekday];
- dvar boolean	C10_Prof[Weekday];
- dvar boolean	C10_Rost[Weekday];
+ dvar boolean	C9_Leave[Weekday];
+ dvar boolean	C9_Late[Weekday];
+ dvar boolean	C9_Lieu[Weekday];
+ dvar boolean	C9_Long[Weekday];
+ dvar boolean	C9_Prof[Weekday];
+ dvar boolean	C9_Rost[Weekday];
  
  //Objective Function
  
@@ -83,29 +83,29 @@ dexpr int	z = sum(i in Pharmacist, j in Weekday, k in Job) y[i][j][k];
  
  //Every full-time staff memeber (EFT = 1) requires 1 ADO per calender month
  
-forall(i in 3..9)
+forall(i in 3..8)
    sum(j in 1..21) y[i][j][19] ==1;
    
-forall(i in 3..9)
+forall(i in 3..8)
    sum(j in 22..41) y[i][j][19] ==1;
    
-forall(i in 3..9)
+forall(i in 3..8)
    sum(j in 42..61) y[i][j][19] ==1;
    
-forall(i in 3..9)
+forall(i in 3..8)
    sum(j in 62..80) y[i][j][19] ==1;
    
-forall(i in 3..9)
+forall(i in 3..8)
    sum(j in 81..103) y[i][j][19] ==1;
    
-forall(i in 3..9)
+forall(i in 3..8)
    sum(j in 104..122) y[i][j][19] ==1;
    
 
 //Physical Limitation Constraint
 
 forall(i in Pharmacist, j in Weekday)
-  sum(k in 1..24) y[i][j][k] <= 1;
+  sum(k in Job) y[i][j][k] <= 1;
 
 //Job Completion Constraint
 
@@ -242,27 +242,27 @@ sum(j in 9..13) y[8][j][20] == 5;
 sum(j in 31..32) y[8][j][21] ==2;
 
 
-///for i = 10;
+///for i = 9;
 
-C10_Leave[13] ==1;
-
-
-C10_Long[113] ==1;
+C9_Leave[13] ==1;
 
 
-C10_Long[117] ==1;
+C9_Long[113] ==1;
 
 
-C10_Long[118] ==1;
+C9_Long[117] ==1;
 
 
-C10_Long[122] ==1;
+C9_Long[118] ==1;
+
+
+C9_Long[122] ==1;
 
 
 ////Total Days Off:
 
-sum(j in Weekday) C10_Leave[j] == 1;
-sum(j in Weekday) C10_Long[j] == 4;
+sum(j in Weekday) C9_Leave[j] == 1;
+sum(j in Weekday) C9_Long[j] == 4;
 
 
 ////////////Total = 5
@@ -422,31 +422,31 @@ forall(j in Weekday)
 forall(j in Weekday)
   y[7][j][20] >= C7_Late[j];  
   
-///for i = 10;
+///for i = 9;
 
 forall(j in Weekday)
-  y[10][j][8] <= 1 - C10_Long[j];
+  y[9][j][8] <= 1 - C9_Long[j];
   
 forall(j in Weekday)
-  y[10][j][8] >= 1 - C10_Long[j];
+  y[9][j][8] >= 1 - C9_Long[j];
 
 forall(j in Weekday)
-  y[10][j][22] <= C10_Long[j];
+  y[9][j][22] <= C9_Long[j];
 
 forall(j in Weekday)
-  y[10][j][22] >= C10_Long[j];  
+  y[9][j][22] >= C9_Long[j];  
 
 
 forall(j in Weekday)
-  y[10][j][8] <= 1 - C10_Leave[j];
+  y[9][j][8] <= 1 - C9_Leave[j];
   
 forall(j in Weekday)
-  y[10][j][8] >= 1 - C10_Leave[j];
+  y[9][j][8] >= 1 - C9_Leave[j];
 
 forall(j in Weekday)
-  y[10][j][18] <= C10_Leave[j];
+  y[9][j][18] <= C9_Leave[j];
 
 forall(j in Weekday)
-  y[10][j][18] >= C10_Leave[j];
+  y[9][j][18] >= C9_Leave[j];
 
 } 

@@ -294,7 +294,7 @@ forall(k in 9..50)
 //forall(k in 9..50)
 //  5 - (sum(i in Intern)x[i][15][k]) <= M*(1 - L3[k]);
 
-//Avoidance Constraint (1 week rotations during seminar weeks/public holidays)
+//Avoidance Constraint (no one week rotations during seminar weeks/public holidays)
 
 forall(i in Intern, j in 12..13)
   x[i][j][5] ==0;

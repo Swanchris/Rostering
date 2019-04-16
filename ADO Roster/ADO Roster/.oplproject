@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="Configuration1" category="opl">
-			<ref name="ADO_Spec_Med_v2.5.mod" type="model">
+		<config default="false" name="Configuration1" category="opl">
+			<ref name="Spec_Med_v3.mod" type="model">
 			</ref>
 		</config>
-		<config default="false" name="Configuration2" category="opl">
-			<ref name="ADO_Spec_Med_v2.2.mod" type="model">
+		<config default="true" name="Configuration2" category="opl">
+			<ref name="Spec_Med_v3.2.mod" type="model">
 			</ref>
 		</config>
 		<config default="false" name="Configuration3" category="opl">
-			<ref name="spare.mod" type="model">
+			<ref name="spare2.mod" type="model">
 			</ref>
 		</config>
 	</configs>
