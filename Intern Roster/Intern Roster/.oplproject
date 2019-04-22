@@ -4,7 +4,7 @@
 		<config default="false" name="Configuration2" category="opl">
 		</config>
 		<config default="true" name="Intern1" category="opl">
-			<ref name="Intern_v5.2.mod" type="model">
+			<ref name="Intern_v5.3.mod" type="model">
 			</ref>
 		</config>
 	</configs>
