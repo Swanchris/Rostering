@@ -2,6 +2,8 @@
 	<version>1.0</version>
 	<configs>
 		<config default="false" name="Configuration2" category="opl">
+			<ref name="Intern_v5.4.mod" type="model">
+			</ref>
 		</config>
 		<config default="true" name="Intern1" category="opl">
 			<ref name="Intern_v5.3.mod" type="model">
