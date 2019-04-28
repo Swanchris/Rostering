@@ -5,8 +5,12 @@
 			<ref name="Special Med/Spec_Med_v3.2.mod" type="model">
 			</ref>
 		</config>
-		<config default="true" name="Critical Care" category="opl">
+		<config default="false" name="Critical Care" category="opl">
 			<ref name="Critical Care/Crit_Care_v1.1.mod" type="model">
+			</ref>
+		</config>
+		<config default="true" name="Clinical" category="opl">
+			<ref name="Clinical_v0.1.0.mod" type="model">
 			</ref>
 		</config>
 	</configs>
