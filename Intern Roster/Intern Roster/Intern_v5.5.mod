@@ -31,7 +31,7 @@ dvar boolean	L2[Week];
 dvar boolean	L3[Week];
 
 
-int				M = 10;
+int				M = 1000;
 
 dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
 
@@ -115,7 +115,7 @@ forall(i in Intern)
 
 //IP (j=9)  
 forall(i in Intern)
-  sum(k in Week)x[i][9][k] == 5;
+  sum(k in 1..45)x[i][9][k] == 5;
 
 //DISP (j=10)  
 forall(i in Intern)
@@ -138,7 +138,7 @@ forall(i in Intern)
 ///Intern Rotation Capacity Constraint
 
 //CPD-G (j=1)  
-forall(k in Week)
+forall(k in Week) 
   sum(i in Intern)x[i][1][k] <= 2;
   
   ///NO INTERN DOES GEN MED AT DANDENONG ALONE:
@@ -208,76 +208,72 @@ forall(k in Week)
 //Intern Rotation Duration Constraint
 
 //CPD-G (j=1)  
-forall(i in Intern)
-  sum(k in 1..47)y1[i][k] ==1;
 forall(i in Intern, k in 1..47)
-  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[i][k]);
+  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*y1[i][k];
+forall(i in Intern, k in 1..47)
+  x[i][1][k] <= M*(1 -y1[i][k]);
 
 //CPD-V (j=2)  
-forall(i in Intern)
-  sum(k in 1..51)y2[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][2][k + a]) <= M*(1-y2[i][k]);
-
+  4 -(sum(a in 0..3)x[i][2][k + a]) <= M*y2[i][k];
+forall(i in Intern, k in 1..51)
+  x[i][2][k] <= M*(1 -y2[i][k]);
+  
 //AP (j=3) 
-forall(i in Intern)
-  sum(k in 1..51)y3[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][3][k + a]) <= M*(1-y3[i][k]);
+  4 -(sum(a in 0..3)x[i][3][k + a]) <= M*y3[i][k];
+forall(i in Intern, k in 1..51)
+  x[i][3][k] <= M*(1 -y3[i][k]);
 
 //MIC (j=4)    
-
-forall(i in Intern)
-  sum(k in 1..25)y4[i][k] ==1;
 forall(i in Intern, k in 1..25)
-  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
-forall(i in Intern)
-  sum(k in 27..53)y4[i][k] ==1;
+  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*y4[i][k];
 forall(i in Intern, k in 27..53)
-  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
-
-//MCH (j=5)  
-forall(i in Intern)
-  sum(k in 1..53)y5[i][k] ==1;
+  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*y4[i][k];
 forall(i in Intern, k in 1..53)
-  2 -(sum(a in 0..1)x[i][5][k + a]) <= M*(1-y5[i][k]);
-
+  x[i][4][k] <= M*(1 -y4[i][k]);  
+  
+//MCH (j=5)  
+forall(i in Intern, k in 1..53)
+  2 -(sum(a in 0..1)x[i][5][k + a]) <= M*y5[i][k];
+forall(i in Intern, k in 1..53)
+  x[i][5][k] <= M*(1 -y5[i][k]);  
 
 //CPCa (j=6)  
-forall(i in Intern)
-  sum(k in 1..52)y6[i][k] ==1;
 forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][6][k + a]) <= M*(1-y6[i][k]);
+  3 -(sum(a in 0..2)x[i][6][k + a]) <= M*y6[i][k];
+forall(i in Intern, k in 1..52)
+  x[i][6][k] <= M*(1 -y6[i][k]);  
 
 //CPM (j=7)
-forall(i in Intern)
-  sum(k in 1..52)y7[i][k] ==1;
 forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][7][k + a]) <= M*(1-y7[i][k]);
+  3 -(sum(a in 0..2)x[i][7][k + a]) <= M*y7[i][k];
+forall(i in Intern, k in 1..52)
+  x[i][7][k] <= M*(1 -y7[i][k]);  
 
 //CPK (j=8)  
-forall(i in Intern)
-  sum(k in 1..52)y8[i][k] ==1;
 forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][8][k + a]) <= M*(1-y8[i][k]);
+  3 -(sum(a in 0..2)x[i][8][k + a]) <= M*y8[i][k];
+forall(i in Intern, k in 1..52)
+  x[i][8][k] <= M*(1 -y8[i][k]);  
 
 //IP (j=9) 
-forall(i in Intern)
-  sum(k in 1..40)y9[i][k] ==1;
-forall(i in Intern, k in 1..40)
-  4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
+forall(i in Intern, k in 1..51)
+  4 -(sum(a in 0..3)x[i][9][k + a]) <= M*y9[i][k];
+forall(i in Intern, k in 1..51)
+  x[i][9][k] <= M*(1 -y9[i][k]);    
 
 //DISP (j=10)    
-forall(i in Intern)
-  sum(k in 1..52)y10[i][k] ==1;
 forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][10][k + a]) <= M*(1-y10[i][k]);
+  3 -(sum(a in 0..2)x[i][10][k + a]) <= M*y10[i][k];
+forall(i in Intern, k in 1..52)
+  x[i][10][k] <= M*(1 -y10[i][k]);  
 
 //CPC (j=11)  
-forall(i in Intern)
-  sum(k in 1..51)y11[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
+  4 -(sum(a in 0..3)x[i][11][k + a]) <= M*y11[i][k];
+forall(i in Intern, k in 1..51)
+  x[i][11][k] <= M*(1 -y11[i][k]);  
 
 
 //Intern Leave Constraints

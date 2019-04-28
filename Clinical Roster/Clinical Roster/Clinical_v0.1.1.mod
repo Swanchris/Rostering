@@ -16,9 +16,59 @@
  
   //Objective Function
   
- dexpr int			z = sum(j in Job, w in Week, d in Day) y[42][j][w][d];
- minimize z;
+ //dexpr int			z = sum(j in Job, w in Week, d in Day) y[42][j][w][d];
+ //minimize z;
 
+
+//Rotation Satisfaction
+
+//Special Medicine
+dexpr int			S1_1 = sum(w in Week, d in Day) y[1][1][w][d];
+
+dexpr int			S1_2 = sum(w in Week, d in Day) y[2][1][w][d];
+
+dexpr int			S2_1 = sum(w in Week, d in Day) y[3][2][w][d];
+
+dexpr int			S2_2 = sum(w in Week, d in Day) y[4][2][w][d];
+
+dexpr int			S3 = sum(w in Week, d in Day) y[5][3][w][d];
+
+dexpr int			S4 = sum(w in Week, d in Day) y[6][4][w][d];
+
+dexpr int			S5 = sum(w in Week, d in Day) y[7][5][w][d];
+
+dexpr int			S6 = sum(w in Week, d in Day) y[8][6][w][d];
+
+dexpr int			S7 = sum(w in Week, d in Day) y[10][7][w][d];
+
+dexpr int			S8 = sum(w in Week, d in Day) y[9][8][w][d];
+
+
+
+//General Medicine
+
+
+
+//Digestive Health
+dexpr int			D17 = sum(w in Week, d in Day) y[26][17][w][d];
+
+dexpr int			D18 = sum(w in Week, d in Day) y[27][18][w][d];
+
+dexpr int			D19_1 = sum(w in Week, d in Day) y[24][19][w][d];
+
+dexpr int			D19_2 = sum(w in Week, d in Day) y[25][19][w][d];
+
+dexpr int			D20 = sum(w in Week, d in Day) y[28][20][w][d];
+
+dexpr int			D21 = sum(w in Week, d in Day) y[32][21][w][d];
+
+dexpr int			D22 = sum(w in Week, d in Day) y[29][22][w][d];
+
+
+dexpr int			R = S1_1 + S1_2 + S2_1 + S2_2 + S3 + S4 + S5 + S6 + S7 + S8 + D17 + D18 + D19_1 + D19_2 +
+					D20 + D21 + D22;
+
+maximize R;
  
   //Constraints
  
@@ -178,6 +228,8 @@
 forall(p in 1..41, w in Week, d in Day)
   sum(j in 1..30) y[p][j][w][d] <=1;
 
+
+
 //ADO Limitation Constraint
 forall(w in Week, d in Day)
   sum(p in 1..12) y[p][32][w][d] <=1;
@@ -189,9 +241,22 @@ forall(w in Week, d in Day)
   sum(p in 34..41) y[p][32][w][d] <=1;
 
 //Job Completion Constraint
-forall(w in Week, d in Day, j in 1..30)
+forall(w in Week, d in Day, j in 1..6)
   sum(p in Pharm) y[p][j][w][d] ==1;
 
+forall(w in Week)
+  sum(p in Pharm) y[p][7][w][3] ==1;
+forall(w in Week)
+  sum(p in Pharm) y[p][7][w][5] ==1;
+  
+forall(w in Week, d in Day, j in 8..21)
+  sum(p in Pharm) y[p][j][w][d] ==1;
+
+forall(w in Week, d in 1..4)
+  sum(p in Pharm) y[p][22][w][d] ==1;
+
+forall(w in Week, d in Day, j in 23..30)
+  sum(p in Pharm) y[p][j][w][d] ==1;
 
 //Part Timer Restrictions
 
@@ -236,4 +301,15 @@ sum(j in 1..30, w in Week, d in 1..2) y[36][j][w][d] ==0;
 
 
 
+//Non full time jobs
+
+//j=7 (TB/HIV Clinics)
+sum(p in Pharm, w in Week, d in 1..2) y[p][7][w][d] ==0;
+sum(p in Pharm, w in Week) y[p][7][w][4] ==0;
+
+//j=22 (AAC)
+sum(p in Pharm, w in Week) y[p][22][w][5] ==0;
+
+
+  
  }
