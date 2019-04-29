@@ -286,7 +286,7 @@ forall(i in Intern, k in 1..51)
 
 //Week 1
 sum(k in 14..26)L1[k] ==1; 
-forall(k in 17..23)
+forall(k in 14..26)
   sum(i in Intern)x[i][14][k] == 11*L1[k];
 
 //Week 2
