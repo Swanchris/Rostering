@@ -284,29 +284,19 @@ forall(i in Intern, k in 1..51)
 //"A holiday around April and a holiday around August"
 
 //Week 1
-//sum(k in 14..26)L1[k] ==1; 
-//forall(k in 14..26)
-//  sum(i in Intern)x[i][14][k] == 11*L1[k];
-sum(k in 7..54)L1[k] ==1; 
-forall(k in 7..54)
+sum(k in 14..26)L1[k] ==1; 
+forall(k in 14..26)
   sum(i in Intern)x[i][14][k] == 11*L1[k];
 
-
 //Week 2
-//sum(k in 31..43)L2[k] ==1;
-//forall(k in 31..43)
-//  sum(i in Intern)x[i][15][k] == 6*L2[k];
+sum(k in 31..43)L2[k] ==1;
 
-//sum(k in 31..43)L3[k] ==1;  
-//forall(k in 31..43)
-//  sum(i in Intern)x[i][16][k] == 5*L3[k];
-
-sum(k in 7..54)L2[k] ==1;
-forall(k in 7..54)
+forall(k in 31..43)
   sum(i in Intern)x[i][15][k] == 6*L2[k];
 
-sum(k in 7..54)L3[k] ==1;  
-forall(k in 7..54)
+sum(k in 31..43)L3[k] ==1;  
+ 
+forall(k in 31..43)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
 
 

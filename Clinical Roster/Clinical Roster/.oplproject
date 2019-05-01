@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<configs>
 		<config default="false" name="Special Med" category="opl">
-			<ref name="Special Med/ADO_Spec_Med_v1.3.mod" type="model">
+			<ref name="Special Med/Spec_Med_v3.2.mod" type="model">
 			</ref>
 		</config>
 		<config default="false" name="Critical Care" category="opl">
