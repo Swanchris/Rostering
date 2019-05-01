@@ -30,8 +30,6 @@ dvar boolean	L1[Week];
 dvar boolean	L2[Week];
 dvar boolean	L3[Week];
 
-int				M = 1000;
-
 
 dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
 
@@ -99,7 +97,7 @@ forall(i in Intern)
 
 //MCH (j=5)
 forall(i in Intern)
-  sum(k in 1..30)x[i][5][k] == 3;
+  sum(k in 1..35)x[i][5][k] == 3;
 
 //CPCa (j=6)
 forall(i in Intern)
@@ -123,15 +121,15 @@ forall(i in Intern)
 
 //CPC (j=11)  
 forall(i in Intern)
-  sum(k in 20..54)x[i][11][k] >= 4;
+  sum(k in Week)x[i][11][k] >= 4;
 
 //QUM (j=12)  
 forall(i in Intern)
-  sum(k in 1..30)x[i][12][k] == 1;
+  sum(k in 1..35)x[i][12][k] == 1;
   
 //H (j=13)  
 forall(i in Intern)
-  sum(k in 1..30)x[i][13][k] == 1;
+  sum(k in 1..35)x[i][13][k] == 1;
 
 
 
@@ -143,9 +141,9 @@ forall(k in Week)
   
   ///NO INTERN DOES GEN MED AT DANDENONG ALONE:
 forall(k in Week)
-  2 - (sum(i in Intern)x[i][1][k]) <= M*D[k];
+  2 - (sum(i in Intern)x[i][1][k]) <= 2*D[k];
 forall(i in Intern, k in Week)
-  x[i][1][k] <= M*(1-D[k]);
+  x[i][1][k] <= 1*(1-D[k]);
   
 
 //CPD-V (j=2)  
@@ -165,7 +163,7 @@ forall(k in 1..4)
   sum(i in 1..6)x[i][5][k] <= 2;  
 forall(k in 5..8)
   sum(i in Intern)x[i][5][k] <= 2;
-forall(k in 9..30)
+forall(k in 9..54)
   sum(i in Intern)x[i][5][k] <= 1;
 
 //CPCa (j=6)  
@@ -185,16 +183,12 @@ forall(k in Week)
   sum(i in Intern)x[i][9][k] <= 2;
 
 //DISP (j=10)    
-forall(k in 1..4)
-  sum(i in 1..6)x[i][10][k] <= 3;  
-forall(k in 5..8)
+forall(k in Week)
   sum(i in Intern)x[i][10][k] <= 3;
-forall(k in 9..54)
-  sum(i in Intern)x[i][10][k] <= 2;
 
 //CPC (j=11)  
 forall(k in Week)
-  sum(i in Intern)x[i][11][k] <= 4;
+  sum(i in Intern)x[i][11][k] <= 5;
 
 //QUM (j=12)    
 forall(k in Week)
@@ -211,72 +205,46 @@ forall(k in Week)
 forall(i in Intern)
   sum(k in 1..47)y1[i][k] ==1;
 forall(i in Intern, k in 1..47)
-  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[i][k]);
+  8 -(sum(a in 0..7)x[i][1][k + a]) <= 8*(1-y1[i][k]);
 
 //CPD-V (j=2)  
 forall(i in Intern)
   sum(k in 1..51)y2[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][2][k + a]) <= M*(1-y2[i][k]);
+  4 -(sum(a in 0..3)x[i][2][k + a]) <= 4*(1-y2[i][k]);
 
 //AP (j=3) 
 forall(i in Intern)
   sum(k in 1..51)y3[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][3][k + a]) <= M*(1-y3[i][k]);
+  4 -(sum(a in 0..3)x[i][3][k + a]) <= 4*(1-y3[i][k]);
 
 //MIC (j=4)    
 forall(i in Intern)
   sum(k in 1..25)y4[i][k] ==1;
 forall(i in Intern, k in 1..25)
-  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
+  2 -(sum(a in 0..1)x[i][4][k + a]) <= 2*(1-y4[i][k]);
+  
 forall(i in Intern)
   sum(k in 27..53)y4[i][k] ==1;
 forall(i in Intern, k in 27..53)
-  2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
+  2 -(sum(a in 0..1)x[i][4][k + a]) <= 2*(1-y4[i][k]);
 
 
-//MCH (j=5)  
-forall(i in Intern)
-  sum(k in 1..53)y5[i][k] ==1;
-forall(i in Intern, k in 1..53)
-  2 -(sum(a in 0..1)x[i][5][k + a]) <= M*(1-y5[i][k]);
 
-//CPCa (j=6)  
-forall(i in Intern)
-  sum(k in 1..52)y6[i][k] ==1;
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][6][k + a]) <= M*(1-y6[i][k]);
 
-//CPM (j=7)
-forall(i in Intern)
-  sum(k in 1..52)y7[i][k] ==1;
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][7][k + a]) <= M*(1-y7[i][k]);
 
-//CPK (j=8)  
-forall(i in Intern)
-  sum(k in 1..52)y8[i][k] ==1;
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][8][k + a]) <= M*(1-y8[i][k]);
+
 
 //IP (j=9) 
 forall(i in Intern)
   sum(k in 1..51)y9[i][k] ==1;
 forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
+  4 -(sum(a in 0..3)x[i][9][k + a]) <= 4*(1-y9[i][k]);
 
-//DISP (j=10)    
-forall(i in Intern)
-  sum(k in 1..52)y10[i][k] ==1;
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][10][k + a]) <= M*(1-y10[i][k]);
 
-//CPC (j=11)  
-forall(i in Intern)
-  sum(k in 1..51)y11[i][k] ==1;
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
+
+
 
 
 //Intern Leave Constraints
@@ -284,29 +252,20 @@ forall(i in Intern, k in 1..51)
 //"A holiday around April and a holiday around August"
 
 //Week 1
-//sum(k in 14..26)L1[k] ==1; 
-//forall(k in 14..26)
-//  sum(i in Intern)x[i][14][k] == 11*L1[k];
-sum(k in 7..54)L1[k] ==1; 
-forall(k in 7..54)
+
+sum(k in 14..25)L1[k] ==1; 
+forall(k in 14..25)
   sum(i in Intern)x[i][14][k] == 11*L1[k];
 
 
 //Week 2
-//sum(k in 31..43)L2[k] ==1;
-//forall(k in 31..43)
-//  sum(i in Intern)x[i][15][k] == 6*L2[k];
 
-//sum(k in 31..43)L3[k] ==1;  
-//forall(k in 31..43)
-//  sum(i in Intern)x[i][16][k] == 5*L3[k];
-
-sum(k in 7..54)L2[k] ==1;
-forall(k in 7..54)
+sum(k in 34..42)L2[k] ==1;
+forall(k in 34..42)
   sum(i in Intern)x[i][15][k] == 6*L2[k];
 
-sum(k in 7..54)L3[k] ==1;  
-forall(k in 7..54)
+sum(k in 34..42)L3[k] ==1;  
+forall(k in 34..42)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
 
 

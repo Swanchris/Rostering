@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="Intern1" category="opl">
-			<ref name="Intern_v5.5.mod" type="model">
+		<config default="false" name="Intern1" category="opl">
+			<ref name="Internv5.6.mod" type="model">
 			</ref>
 		</config>
 		<config default="false" name="Intern" category="opl">
-			<ref name="Intern_v5.4 - test.mod" type="model">
+		</config>
+		<config default="true" name="intern-test" category="opl">
+			<ref name="Intern_v5.3.mod" type="model">
 			</ref>
 		</config>
 	</configs>
