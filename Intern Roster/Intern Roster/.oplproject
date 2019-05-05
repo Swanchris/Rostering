@@ -2,11 +2,11 @@
 	<version>1.0</version>
 	<configs>
 		<config default="true" name="Intern1" category="opl">
-			<ref name="Intern_v5.5.mod" type="model">
+			<ref name="Intern_v5.0.mod" type="model">
 			</ref>
 		</config>
 		<config default="false" name="Intern" category="opl">
-			<ref name="Intern_v5.4 - test.mod" type="model">
+			<ref name="internv5.3.02 -test.mod" type="model">
 			</ref>
 		</config>
 	</configs>

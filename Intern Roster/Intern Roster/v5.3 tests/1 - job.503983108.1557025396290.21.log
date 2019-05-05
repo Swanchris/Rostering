@@ -1,0 +1,58 @@
+[5/5/19, 1:03:21 pm, INFO] Initialization of z.
+[5/5/19, 1:03:21 pm, INFO] Initialization of Intern.
+[5/5/19, 1:03:21 pm, INFO] Initialization of Rotation.
+[5/5/19, 1:03:21 pm, INFO] Initialization of Week.
+[5/5/19, 1:03:21 pm, INFO] Initialization of x.
+[5/5/19, 1:03:21 pm, INFO] Initialization of M.
+[5/5/19, 1:03:21 pm, INFO] Initialization of D.
+[5/5/19, 1:03:21 pm, INFO] Initialization of y1.
+[5/5/19, 1:03:21 pm, INFO] Initialization of L1.
+[5/5/19, 1:03:21 pm, INFO] Initialization of L2.
+[5/5/19, 1:03:21 pm, INFO] Initialization of L3.
+[5/5/19, 1:03:21 pm, WARN] Effective number of workers to be used for solve has been updated to: '10' (original value was: '0')
+[5/5/19, 1:03:21 pm, INFO] CPXPARAM_Threads                                 10
+[5/5/19, 1:03:21 pm, INFO] Tried aggregator 1 time.
+[5/5/19, 1:03:21 pm, INFO] MIP Presolve eliminated 618 rows and 3837 columns.
+[5/5/19, 1:03:21 pm, INFO] MIP Presolve modified 4181 coefficients.
+[5/5/19, 1:03:21 pm, INFO] Reduced MIP has 2448 rows, 6871 columns, and 26474 nonzeros.
+[5/5/19, 1:03:21 pm, INFO] Reduced MIP has 6871 binaries, 0 generals, 0 SOSs, and 0 indicators.
+[5/5/19, 1:03:21 pm, INFO] Presolve time = 0.04 sec. (27.80 ticks)
+[5/5/19, 1:03:21 pm, INFO] Probing fixed 33 vars, tightened 0 bounds.
+[5/5/19, 1:03:21 pm, INFO] Probing time = 0.03 sec. (8.59 ticks)
+[5/5/19, 1:03:21 pm, INFO] Tried aggregator 1 time.
+[5/5/19, 1:03:21 pm, INFO] MIP Presolve eliminated 33 rows and 33 columns.
+[5/5/19, 1:03:21 pm, INFO] Reduced MIP has 2415 rows, 6838 columns, and 26144 nonzeros.
+[5/5/19, 1:03:21 pm, INFO] Reduced MIP has 6838 binaries, 0 generals, 0 SOSs, and 0 indicators.
+[5/5/19, 1:03:21 pm, INFO] Presolve time = 0.03 sec. (20.25 ticks)
+[5/5/19, 1:03:21 pm, INFO] Probing time = 0.02 sec. (3.97 ticks)
+[5/5/19, 1:03:21 pm, INFO] Clique table members: 15274.
+[5/5/19, 1:03:21 pm, INFO] MIP emphasis: balance optimality and feasibility.
+[5/5/19, 1:03:21 pm, INFO] MIP search method: dynamic search.
+[5/5/19, 1:03:21 pm, INFO] Parallel mode: deterministic, using up to 10 threads.
+[5/5/19, 1:03:21 pm, INFO] Root relaxation solution time = 0.38 sec. (288.70 ticks)
+[5/5/19, 1:03:21 pm, INFO]         Nodes                                         Cuts/
+[5/5/19, 1:03:21 pm, INFO]    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+[5/5/19, 1:03:21 pm, INFO]       0     0      594.0000   448                    594.0000     2895         
+[5/5/19, 1:03:23 pm, INFO]       0     0      594.0000   283                   Cuts: 339     4312         
+[5/5/19, 1:03:25 pm, INFO]       0     0      594.0000   651                   Cuts: 306     6670         
+[5/5/19, 1:03:28 pm, INFO]       0     0      594.0000   399                    Cuts: 41     8803         
+[5/5/19, 1:03:33 pm, INFO] *     0+    0                          594.0000      594.0000             0.00%
+[5/5/19, 1:03:33 pm, INFO]       0     0        cutoff            594.0000      594.0000    10345    0.00%
+[5/5/19, 1:03:33 pm, INFO] Elapsed time = 12.27 sec. (8450.72 ticks, tree = 0.01 MB, solutions = 1)
+[5/5/19, 1:03:33 pm, INFO] GUB cover cuts applied:  3
+[5/5/19, 1:03:33 pm, INFO] Clique cuts applied:  344
+[5/5/19, 1:03:33 pm, INFO] Cover cuts applied:  45
+[5/5/19, 1:03:33 pm, INFO] Implied bound cuts applied:  49
+[5/5/19, 1:03:33 pm, INFO] Flow cuts applied:  2
+[5/5/19, 1:03:33 pm, INFO] Mixed integer rounding cuts applied:  21
+[5/5/19, 1:03:33 pm, INFO] Zero-half cuts applied:  16
+[5/5/19, 1:03:33 pm, INFO] Root node processing (before b&c):
+[5/5/19, 1:03:33 pm, INFO]   Real time             =   12.28 sec. (8451.22 ticks)
+[5/5/19, 1:03:33 pm, INFO] Parallel b&c, 10 threads:
+[5/5/19, 1:03:33 pm, INFO]   Real time             =    0.00 sec. (0.00 ticks)
+[5/5/19, 1:03:33 pm, INFO]   Sync time (average)   =    0.00 sec.
+[5/5/19, 1:03:33 pm, INFO]   Wait time (average)   =    0.00 sec.
+[5/5/19, 1:03:33 pm, INFO]                           ------------
+[5/5/19, 1:03:33 pm, INFO] Total (root+branch&cut) =   12.28 sec. (8451.22 ticks)
+[5/5/19, 1:03:33 pm, INFO] Total time spent in post processing: 1 msecs.
+[5/5/19, 1:03:33 pm, INFO] Solve finished with status: OPTIMAL_SOLUTION.

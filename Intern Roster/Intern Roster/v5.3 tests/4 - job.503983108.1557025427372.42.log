@@ -1,0 +1,61 @@
+[5/5/19, 1:06:53 pm, INFO] Initialization of z.
+[5/5/19, 1:06:53 pm, INFO] Initialization of Intern.
+[5/5/19, 1:06:53 pm, INFO] Initialization of Rotation.
+[5/5/19, 1:06:53 pm, INFO] Initialization of Week.
+[5/5/19, 1:06:53 pm, INFO] Initialization of x.
+[5/5/19, 1:06:53 pm, INFO] Initialization of M.
+[5/5/19, 1:06:53 pm, INFO] Initialization of D.
+[5/5/19, 1:06:53 pm, INFO] Initialization of y1.
+[5/5/19, 1:06:53 pm, INFO] Initialization of y2.
+[5/5/19, 1:06:53 pm, INFO] Initialization of y3.
+[5/5/19, 1:06:53 pm, INFO] Initialization of y4.
+[5/5/19, 1:06:53 pm, INFO] Initialization of L1.
+[5/5/19, 1:06:53 pm, INFO] Initialization of L2.
+[5/5/19, 1:06:53 pm, INFO] Initialization of L3.
+[5/5/19, 1:06:53 pm, WARN] Effective number of workers to be used for solve has been updated to: '10' (original value was: '0')
+[5/5/19, 1:06:53 pm, INFO] CPXPARAM_Threads                                 10
+[5/5/19, 1:06:53 pm, INFO] Tried aggregator 1 time.
+[5/5/19, 1:06:53 pm, INFO] MIP Presolve eliminated 750 rows and 3969 columns.
+[5/5/19, 1:06:53 pm, INFO] MIP Presolve modified 7591 coefficients.
+[5/5/19, 1:06:53 pm, INFO] Reduced MIP has 4065 rows, 8444 columns, and 34834 nonzeros.
+[5/5/19, 1:06:53 pm, INFO] Reduced MIP has 8444 binaries, 0 generals, 0 SOSs, and 0 indicators.
+[5/5/19, 1:06:53 pm, INFO] Presolve time = 0.05 sec. (37.03 ticks)
+[5/5/19, 1:06:53 pm, INFO] Probing fixed 132 vars, tightened 0 bounds.
+[5/5/19, 1:06:53 pm, INFO] Probing time = 0.07 sec. (21.72 ticks)
+[5/5/19, 1:06:53 pm, INFO] Tried aggregator 1 time.
+[5/5/19, 1:06:53 pm, INFO] MIP Presolve eliminated 132 rows and 132 columns.
+[5/5/19, 1:06:53 pm, INFO] Reduced MIP has 3933 rows, 8312 columns, and 33976 nonzeros.
+[5/5/19, 1:06:53 pm, INFO] Reduced MIP has 8312 binaries, 0 generals, 0 SOSs, and 0 indicators.
+[5/5/19, 1:06:53 pm, INFO] Presolve time = 0.04 sec. (27.64 ticks)
+[5/5/19, 1:06:53 pm, INFO] Probing time = 0.03 sec. (4.59 ticks)
+[5/5/19, 1:06:53 pm, INFO] Clique table members: 19976.
+[5/5/19, 1:06:53 pm, INFO] MIP emphasis: balance optimality and feasibility.
+[5/5/19, 1:06:53 pm, INFO] MIP search method: dynamic search.
+[5/5/19, 1:06:53 pm, INFO] Parallel mode: deterministic, using up to 10 threads.
+[5/5/19, 1:06:54 pm, INFO] Root relaxation solution time = 0.55 sec. (413.26 ticks)
+[5/5/19, 1:06:54 pm, INFO]         Nodes                                         Cuts/
+[5/5/19, 1:06:54 pm, INFO]    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+[5/5/19, 1:06:54 pm, INFO]       0     0      594.0000  1053                    594.0000        0         
+[5/5/19, 1:06:56 pm, INFO]       0     0      594.0000   244                   Cuts: 202     1706         
+[5/5/19, 1:06:58 pm, INFO]       0     0      594.0000   837                  Cuts: 1083     5917         
+[5/5/19, 1:07:03 pm, INFO]       0     0      594.0000   896                   Cuts: 561    10792         
+[5/5/19, 1:07:17 pm, INFO] *     0+    0                          594.0000      594.0000             0.00%
+[5/5/19, 1:07:17 pm, INFO]       0     0        cutoff            594.0000      594.0000    10792    0.00%
+[5/5/19, 1:07:17 pm, INFO] Elapsed time = 23.74 sec. (14461.39 ticks, tree = 0.01 MB, solutions = 1)
+[5/5/19, 1:07:17 pm, INFO] GUB cover cuts applied:  2
+[5/5/19, 1:07:17 pm, INFO] Clique cuts applied:  608
+[5/5/19, 1:07:17 pm, INFO] Cover cuts applied:  190
+[5/5/19, 1:07:17 pm, INFO] Implied bound cuts applied:  132
+[5/5/19, 1:07:17 pm, INFO] Mixed integer rounding cuts applied:  51
+[5/5/19, 1:07:17 pm, INFO] Zero-half cuts applied:  73
+[5/5/19, 1:07:17 pm, INFO] Gomory fractional cuts applied:  1
+[5/5/19, 1:07:17 pm, INFO] Root node processing (before b&c):
+[5/5/19, 1:07:17 pm, INFO]   Real time             =   23.74 sec. (14461.99 ticks)
+[5/5/19, 1:07:17 pm, INFO] Parallel b&c, 10 threads:
+[5/5/19, 1:07:17 pm, INFO]   Real time             =    0.00 sec. (0.00 ticks)
+[5/5/19, 1:07:17 pm, INFO]   Sync time (average)   =    0.00 sec.
+[5/5/19, 1:07:17 pm, INFO]   Wait time (average)   =    0.00 sec.
+[5/5/19, 1:07:17 pm, INFO]                           ------------
+[5/5/19, 1:07:17 pm, INFO] Total (root+branch&cut) =   23.74 sec. (14461.99 ticks)
+[5/5/19, 1:07:17 pm, INFO] Total time spent in post processing: 0 msecs.
+[5/5/19, 1:07:17 pm, INFO] Solve finished with status: OPTIMAL_SOLUTION.
