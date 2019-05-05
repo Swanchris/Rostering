@@ -206,11 +206,7 @@ forall(k in 5..30)
 
 //Intern Rotation Duration Constraint
 
-//CPD-G (j=1)  
-forall(i in Intern)
-  sum(k in 1..47)y1[i][k] ==1;
-forall(i in Intern, k in 1..47)
-  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[i][k]);
+
 
 //CPD-V (j=2)  
 forall(i in Intern)
@@ -226,10 +222,9 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 5..25)y4[i][k] ==1;
+  sum(k in 1..25)y4[i][k] ==1;
 forall(i in Intern, k in 1..25)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
-  
 forall(i in Intern)
   sum(k in 27..53)y4[i][k] ==1;
 forall(i in Intern, k in 27..53)
