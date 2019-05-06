@@ -30,12 +30,12 @@ dvar boolean	L1[Week];
 dvar boolean	L2[Week];
 dvar boolean	L3[Week];
 
-int				M = 1000;
 
+int				M = 1000;
 
 dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
 
-maximize z;
+minimize z;
 
 
 subject to{
@@ -99,7 +99,7 @@ forall(i in Intern)
 
 //MCH (j=5)
 forall(i in Intern)
-  sum(k in 1..30)x[i][5][k] == 3;
+  sum(k in 1..20)x[i][5][k] == 3;
 
 //CPCa (j=6)
 forall(i in Intern)
@@ -111,7 +111,7 @@ forall(i in Intern)
 
 //CPK (j=8)  
 forall(i in Intern)
-  sum(k in Week)x[i][8][k] == 3;
+  sum(k in Week)x[i][8][k] == 2;
 
 //IP (j=9)  
 forall(i in Intern)
@@ -123,15 +123,15 @@ forall(i in Intern)
 
 //CPC (j=11)  
 forall(i in Intern)
-  sum(k in 20..54)x[i][11][k] == 4;
+  sum(k in 26..54)x[i][11][k] >= 5;
 
 //QUM (j=12)  
 forall(i in Intern)
-  sum(k in 1..30)x[i][12][k] == 1;
+  sum(k in Week)x[i][12][k] == 1;
   
 //H (j=13)  
 forall(i in Intern)
-  sum(k in 1..30)x[i][13][k] == 1;
+  sum(k in 1..26)x[i][13][k] == 1;
 
 
 
@@ -164,9 +164,12 @@ forall(k in Week)
 forall(k in 1..4)
   sum(i in 1..6)x[i][5][k] <= 2;  
 forall(k in 5..8)
-  sum(i in Intern)x[i][5][k] <= 2;
-forall(k in 9..30)
-  sum(i in Intern)x[i][5][k] <= 1;
+  sum(i in 7..11)x[i][5][k] <= 2;
+
+forall(k in 5..50)
+  sum(i in 1..6)x[i][5][k] <= 1;  
+forall(k in 9..54)
+  sum(i in 7..11)x[i][5][k] <= 1;
 
 //CPCa (j=6)  
 forall(k in Week)
@@ -178,30 +181,26 @@ forall(k in Week)
 
 //CPK (j=8)  
 forall(k in Week)
-  sum(i in Intern)x[i][8][k] <= 1;
+  sum(i in Intern)x[i][8][k] <= 3;
 
 //IP (j=9) 
 forall(k in Week)
   sum(i in Intern)x[i][9][k] <= 2;
 
 //DISP (j=10)    
-forall(k in 1..4)
-  sum(i in 1..6)x[i][10][k] <= 3;  
-forall(k in 5..8)
+forall(k in Week)
   sum(i in Intern)x[i][10][k] <= 3;
-forall(k in 9..54)
-  sum(i in Intern)x[i][10][k] <= 2;
 
 //CPC (j=11)  
-forall(k in 20..54)
-  sum(i in Intern)x[i][11][k] <= 4;
+forall(k in Week)
+  sum(i in Intern)x[i][11][k] <= 6;
 
 //QUM (j=12)    
-forall(k in 5..30)
+forall(k in Week)
   sum(i in Intern)x[i][12][k] <= 1;
 
 //H (j=13)  
-forall(k in 5..30)
+forall(k in Week)
   sum(i in Intern)x[i][13][k] <= 1;
 
 
@@ -227,10 +226,9 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 5..25)y4[i][k] ==1;
-forall(i in Intern, k in 1..25)
+  sum(k in 1..26)y4[i][k] ==1;
+forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
-  
 forall(i in Intern)
   sum(k in 27..53)y4[i][k] ==1;
 forall(i in Intern, k in 27..53)
@@ -239,9 +237,10 @@ forall(i in Intern, k in 27..53)
 
 //MCH (j=5)  
 forall(i in Intern)
-  sum(k in 1..28)y5[i][k] ==1;
-forall(i in Intern, k in 1..28)
+  sum(k in 1..53)y5[i][k] ==1;
+forall(i in Intern, k in 1..53)
   2 -(sum(a in 0..1)x[i][5][k + a]) <= M*(1-y5[i][k]);
+
 
 //CPCa (j=6)  
 forall(i in Intern)
@@ -257,9 +256,9 @@ forall(i in Intern, k in 1..52)
 
 //CPK (j=8)  
 forall(i in Intern)
-  sum(k in 1..52)y8[i][k] ==1;
-forall(i in Intern, k in 1..52)
-  3 -(sum(a in 0..2)x[i][8][k + a]) <= M*(1-y8[i][k]);
+  sum(k in 1..53)y8[i][k] ==1;
+forall(i in Intern, k in 1..53)
+  2 -(sum(a in 0..1)x[i][8][k + a]) <= M*(1-y8[i][k]);
 
 //IP (j=9) 
 forall(i in Intern)
@@ -272,6 +271,7 @@ forall(i in Intern)
   sum(k in 1..51)y11[i][k] ==1;
 forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
+
 
 
 //Intern Leave Constraints
