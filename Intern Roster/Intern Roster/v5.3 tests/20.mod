@@ -4,36 +4,36 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
-range Week = 1..54;
-range Intern = 1..11;
-range Rotation = 1..17;
+range	Week = 1..54;
+range	Intern = 1..11;
+range	Rotation = 1..17;
 
 
-dvar boolean  x[Intern][Rotation][Week];
+dvar boolean	x[Intern][Rotation][Week];
 
-dvar boolean  D[Week];
+dvar boolean	D[Week];
 
-dvar boolean  y1[Intern][Week];
-dvar boolean  y2[Intern][Week];
-dvar boolean  y3[Intern][Week];
-dvar boolean  y4[Intern][Week];
-dvar boolean  y5[Intern][Week];
-dvar boolean  y6[Intern][Week];
-dvar boolean  y7[Intern][Week];
-dvar boolean  y8[Intern][Week];
-dvar boolean  y9[Intern][Week];
-dvar boolean  y10[Intern][Week];
-dvar boolean  y11[Intern][Week];
-
-
-dvar boolean  L1[Week];
-dvar boolean  L2[Week];
-dvar boolean  L3[Week];
+dvar boolean	y1[Intern][Week];
+dvar boolean	y2[Intern][Week];
+dvar boolean	y3[Intern][Week];
+dvar boolean	y4[Intern][Week];
+dvar boolean	y5[Intern][Week];
+dvar boolean	y6[Intern][Week];
+dvar boolean	y7[Intern][Week];
+dvar boolean	y8[Intern][Week];
+dvar boolean	y9[Intern][Week];
+dvar boolean	y10[Intern][Week];
+dvar boolean	y11[Intern][Week];
 
 
-int       M = 1000;
+dvar boolean	L1[Week];
+dvar boolean	L2[Week];
+dvar boolean	L3[Week];
 
-dexpr int z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
+
+int				M = 1000;
+
+dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
 
 minimize z;
 
@@ -260,6 +260,12 @@ forall(i in Intern)
   sum(k in 1..51)y9[i][k] ==1;
 forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
+
+//DISP (j=10)    
+forall(i in Intern)
+  sum(k in 1..52)y10[i][k] ==1;
+forall(i in Intern, k in 1..52)
+  3 -(sum(a in 0..2)x[i][10][k + a]) <= M*(1-y10[i][k]);
 
 //CPC (j=11)  
 forall(i in Intern)

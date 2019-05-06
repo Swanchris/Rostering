@@ -1,0 +1,179 @@
+[5/6/19, 2:33:06 PM, INFO] Initialization of z.
+[5/6/19, 2:33:06 PM, INFO] Initialization of Intern.
+[5/6/19, 2:33:06 PM, INFO] Initialization of Rotation.
+[5/6/19, 2:33:06 PM, INFO] Initialization of Week.
+[5/6/19, 2:33:06 PM, INFO] Initialization of x.
+[5/6/19, 2:33:06 PM, INFO] Initialization of M.
+[5/6/19, 2:33:06 PM, INFO] Initialization of D.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y1.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y2.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y3.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y4.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y5.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y6.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y7.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y8.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y9.
+[5/6/19, 2:33:06 PM, INFO] Initialization of y11.
+[5/6/19, 2:33:06 PM, INFO] Initialization of L1.
+[5/6/19, 2:33:06 PM, INFO] Initialization of L2.
+[5/6/19, 2:33:06 PM, INFO] Initialization of L3.
+[5/6/19, 2:33:06 PM, WARN] Effective number of workers to be used for solve has been updated to: '10' (original value was: '0')
+[5/6/19, 2:33:06 PM, INFO] CPXPARAM_Threads                                 10
+[5/6/19, 2:33:06 PM, INFO] Tried aggregator 1 time.
+[5/6/19, 2:33:06 PM, INFO] MIP Presolve eliminated 984 rows and 3661 columns.
+[5/6/19, 2:33:06 PM, INFO] MIP Presolve modified 14555 coefficients.
+[5/6/19, 2:33:06 PM, INFO] Reduced MIP has 7248 rows, 12173 columns, and 51995 nonzeros.
+[5/6/19, 2:33:06 PM, INFO] Reduced MIP has 12173 binaries, 0 generals, 0 SOSs, and 0 indicators.
+[5/6/19, 2:33:06 PM, INFO] Presolve time = 0.07 sec. (56.12 ticks)
+[5/6/19, 2:33:06 PM, INFO] Probing fixed 264 vars, tightened 0 bounds.
+[5/6/19, 2:33:06 PM, INFO] Probing time = 0.14 sec. (46.13 ticks)
+[5/6/19, 2:33:06 PM, INFO] Tried aggregator 1 time.
+[5/6/19, 2:33:06 PM, INFO] MIP Presolve eliminated 267 rows and 297 columns.
+[5/6/19, 2:33:06 PM, INFO] Reduced MIP has 6981 rows, 11876 columns, and 50378 nonzeros.
+[5/6/19, 2:33:06 PM, INFO] Reduced MIP has 11876 binaries, 0 generals, 0 SOSs, and 0 indicators.
+[5/6/19, 2:33:06 PM, INFO] Presolve time = 0.06 sec. (44.79 ticks)
+[5/6/19, 2:33:07 PM, INFO] Probing time = 0.03 sec. (5.76 ticks)
+[5/6/19, 2:33:07 PM, INFO] Clique table members: 29716.
+[5/6/19, 2:33:07 PM, INFO] MIP emphasis: balance optimality and feasibility.
+[5/6/19, 2:33:07 PM, INFO] MIP search method: dynamic search.
+[5/6/19, 2:33:07 PM, INFO] Parallel mode: deterministic, using up to 10 threads.
+[5/6/19, 2:33:07 PM, INFO] Root relaxation solution time = 0.85 sec. (605.38 ticks)
+[5/6/19, 2:33:07 PM, INFO]         Nodes                                         Cuts/
+[5/6/19, 2:33:07 PM, INFO]    Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+[5/6/19, 2:33:07 PM, INFO]       0     0      594.0000  1437                    594.0000        0         
+[5/6/19, 2:33:12 PM, INFO]       0     0      594.0000   966                   Cuts: 626     3625         
+[5/6/19, 2:33:18 PM, INFO]       0     0      594.0000  1365                  Cuts: 1845    10916         
+[5/6/19, 2:33:35 PM, INFO]       0     0      594.0000  1487                  Cuts: 1045    20049         
+[5/6/19, 2:33:55 PM, INFO]       0     2      594.0000   840                    594.0000    20114         
+[5/6/19, 2:33:55 PM, INFO] Elapsed time = 49.08 sec. (32383.90 ticks, tree = 0.01 MB, solutions = 0)
+[5/6/19, 2:34:05 PM, INFO]       1     3      594.0000   835                    594.0000    38226         
+[5/6/19, 2:34:10 PM, INFO]       2     4      594.0000   929                    594.0000    46407         
+[5/6/19, 2:34:15 PM, INFO]       3     5      594.0000   803                    594.0000    52642         
+[5/6/19, 2:34:15 PM, INFO]       5     7      594.0000   781                    594.0000    53503         
+[5/6/19, 2:34:16 PM, INFO]       7     9      594.0000   704                    594.0000    55300         
+[5/6/19, 2:34:16 PM, INFO]       8    10      594.0000   717                    594.0000    55393         
+[5/6/19, 2:34:17 PM, INFO]      13    15      594.0000   673                    594.0000    58974         
+[5/6/19, 2:34:17 PM, INFO]      21    23      594.0000   575                    594.0000    61971         
+[5/6/19, 2:34:18 PM, INFO]      30    31      594.0000   540                    594.0000    67858         
+[5/6/19, 2:34:20 PM, INFO]      82    19      594.0000   778                    594.0000    88991         
+[5/6/19, 2:34:20 PM, INFO] Elapsed time = 73.88 sec. (48203.88 ticks, tree = 0.21 MB, solutions = 0)
+[5/6/19, 2:34:21 PM, INFO]     176    74      594.0000   776                    594.0000   112521         
+[5/6/19, 2:34:23 PM, INFO]     365    77      594.0000   518                    594.0000   108477         
+[5/6/19, 2:34:25 PM, INFO]     570   244      594.0000   402                    594.0000   185117         
+[5/6/19, 2:34:27 PM, INFO]     648   470      594.0000  1068                    594.0000   338648         
+[5/6/19, 2:34:29 PM, INFO]     655   618      594.0000  1030                    594.0000   386699         
+[5/6/19, 2:34:32 PM, INFO]     667   613      594.0000   676                    594.0000   381787         
+[5/6/19, 2:34:35 PM, INFO]     681   630      594.0000   674                    594.0000   414890         
+[5/6/19, 2:34:38 PM, INFO]     726   672      594.0000   596                    594.0000   454727         
+[5/6/19, 2:34:39 PM, INFO]     747   652      594.0000   698                    594.0000   447658         
+[5/6/19, 2:34:41 PM, INFO]     872   714      594.0000   686                    594.0000   479414         
+[5/6/19, 2:34:41 PM, INFO] Elapsed time = 95.10 sec. (58000.00 ticks, tree = 6.10 MB, solutions = 0)
+[5/6/19, 2:34:43 PM, INFO]     954   741      594.0000   631                    594.0000   486884         
+[5/6/19, 2:34:44 PM, INFO]    1065   901      594.0000   528                    594.0000   544983         
+[5/6/19, 2:34:46 PM, INFO]    1169   931      594.0000   456                    594.0000   558783         
+[5/6/19, 2:34:48 PM, INFO]    1332  1030      594.0000   453                    594.0000   592796         
+[5/6/19, 2:34:49 PM, INFO]    1527  1198      594.0000   596                    594.0000   630284         
+[5/6/19, 2:34:51 PM, INFO]    1652  1300      594.0000   713                    594.0000   677189         
+[5/6/19, 2:34:53 PM, INFO]    1780  1512      594.0000   505                    594.0000   748519         
+[5/6/19, 2:34:55 PM, INFO]    1920  1552      594.0000   535                    594.0000   759618         
+[5/6/19, 2:34:57 PM, INFO]    2135  1764      594.0000   728                    594.0000   852079         
+[5/6/19, 2:34:58 PM, INFO]    2307  1963      594.0000   505                    594.0000   924430         
+[5/6/19, 2:34:58 PM, INFO] Elapsed time = 112.61 sec. (67613.01 ticks, tree = 27.74 MB, solutions = 0)
+[5/6/19, 2:35:00 PM, INFO]    2482  2118      594.0000   516                    594.0000   972424         
+[5/6/19, 2:35:02 PM, INFO]    2669  2328      594.0000   682                    594.0000  1055470         
+[5/6/19, 2:35:04 PM, INFO]    2803  2555      594.0000   627                    594.0000  1158567         
+[5/6/19, 2:35:06 PM, INFO]    2975  2666      594.0000   608                    594.0000  1212924         
+[5/6/19, 2:35:08 PM, INFO]    3095  2655      594.0000   686                    594.0000  1204779         
+[5/6/19, 2:35:10 PM, INFO]    3254  2853      594.0000   616                    594.0000  1315407         
+[5/6/19, 2:35:12 PM, INFO]    3410  2913      594.0000   581                    594.0000  1350807         
+[5/6/19, 2:35:13 PM, INFO]    3554  3078      594.0000   573                    594.0000  1433762         
+[5/6/19, 2:35:15 PM, INFO]    3650  3272      594.0000   583                    594.0000  1525428         
+[5/6/19, 2:35:17 PM, INFO]    3753  3301      594.0000   614                    594.0000  1535306         
+[5/6/19, 2:35:17 PM, INFO] Elapsed time = 131.63 sec. (77225.42 ticks, tree = 50.47 MB, solutions = 0)
+[5/6/19, 2:35:19 PM, INFO]    3853  3404    infeasible                          594.0000  1620596         
+[5/6/19, 2:35:21 PM, INFO]    3957  3428      594.0000   714                    594.0000  1650949         
+[5/6/19, 2:35:23 PM, INFO]    4088  3503      594.0000   760                    594.0000  1719871         
+[5/6/19, 2:35:25 PM, INFO]    4160  3611    infeasible                          594.0000  1781599         
+[5/6/19, 2:35:28 PM, INFO]    4192  3706    infeasible                          594.0000  1820698         
+[5/6/19, 2:35:30 PM, INFO]    4237  3660    infeasible                          594.0000  2005650         
+[5/6/19, 2:35:33 PM, INFO]    4280  3678    infeasible                          594.0000  1955041         
+[5/6/19, 2:35:36 PM, INFO]    4325  3652    infeasible                          594.0000  2044834         
+[5/6/19, 2:35:38 PM, INFO]    4378  3625    infeasible                          594.0000  2140685         
+[5/6/19, 2:35:40 PM, INFO]    4419  3588    infeasible                          594.0000  2228775         
+[5/6/19, 2:35:40 PM, INFO] Elapsed time = 154.52 sec. (86947.41 ticks, tree = 55.19 MB, solutions = 0)
+[5/6/19, 2:35:43 PM, INFO]    4463  3537    infeasible                          594.0000  2368510         
+[5/6/19, 2:35:45 PM, INFO]    4488  3524    infeasible                          594.0000  2419550         
+[5/6/19, 2:35:48 PM, INFO]    4513  3509      594.0000   789                    594.0000  2458727         
+[5/6/19, 2:35:51 PM, INFO]    4536  3514      594.0000   839                    594.0000  2456421         
+[5/6/19, 2:35:53 PM, INFO]    4565  3492      594.0000   644                    594.0000  2551249         
+[5/6/19, 2:35:56 PM, INFO]    4593  3504      594.0000   743                    594.0000  2594573         
+[5/6/19, 2:35:58 PM, INFO]    4629  3518      594.0000   716                    594.0000  2669964         
+[5/6/19, 2:36:01 PM, INFO]    4677  3543    infeasible                          594.0000  2712574         
+[5/6/19, 2:36:05 PM, INFO]    4716  3536      594.0000   671                    594.0000  2683117         
+[5/6/19, 2:36:08 PM, INFO]    4746  3600      594.0000   821                    594.0000  2776328         
+[5/6/19, 2:36:08 PM, INFO] Elapsed time = 181.95 sec. (96861.17 ticks, tree = 63.83 MB, solutions = 0)
+[5/6/19, 2:36:10 PM, INFO]    4783  3600    infeasible                          594.0000  2801312         
+[5/6/19, 2:36:12 PM, INFO]    4820  3615      594.0000   716                    594.0000  2808067         
+[5/6/19, 2:36:15 PM, INFO]    4868  3637      594.0000   664                    594.0000  2837698         
+[5/6/19, 2:36:17 PM, INFO]    4949  3719    infeasible                          594.0000  2867770         
+[5/6/19, 2:36:19 PM, INFO]    5113  3829      594.0000   670                    594.0000  2942013         
+[5/6/19, 2:36:20 PM, INFO]    5226  3779      594.0000   792                    594.0000  2933316         
+[5/6/19, 2:36:22 PM, INFO]    5312  3855      594.0000   756                    594.0000  2955315         
+[5/6/19, 2:36:24 PM, INFO]    5387  4031    infeasible                          594.0000  3026984         
+[5/6/19, 2:36:26 PM, INFO]    5476  4032      594.0000   783                    594.0000  3013253         
+[5/6/19, 2:36:28 PM, INFO]    5588  4169      594.0000   785                    594.0000  3069961         
+[5/6/19, 2:36:28 PM, INFO] Elapsed time = 202.03 sec. (106508.20 ticks, tree = 81.92 MB, solutions = 0)
+[5/6/19, 2:36:30 PM, INFO]    5690  4183      594.0000   766                    594.0000  3074761         
+[5/6/19, 2:36:32 PM, INFO]    5791  4402      594.0000   576                    594.0000  3141745         
+[5/6/19, 2:36:33 PM, INFO]    5920  4339      594.0000   568                    594.0000  3123309         
+[5/6/19, 2:36:35 PM, INFO]    6015  4554      594.0000   537                    594.0000  3196028         
+[5/6/19, 2:36:37 PM, INFO]    6112  4575      594.0000   624                    594.0000  3205657         
+[5/6/19, 2:36:39 PM, INFO]    6263  4807      594.0000   588                    594.0000  3294653         
+[5/6/19, 2:36:41 PM, INFO]    6441  4813      594.0000   626                    594.0000  3299314         
+[5/6/19, 2:36:43 PM, INFO]    6617  4922      594.0000   601                    594.0000  3347084         
+[5/6/19, 2:36:44 PM, INFO]    6781  5056    infeasible                          594.0000  3407929         
+[5/6/19, 2:36:46 PM, INFO]    6945  5236    infeasible                          594.0000  3468986         
+[5/6/19, 2:36:46 PM, INFO] Elapsed time = 220.60 sec. (116117.83 ticks, tree = 103.50 MB, solutions = 0)
+[5/6/19, 2:36:48 PM, INFO]    7091  5260      594.0000   688                    594.0000  3478496         
+[5/6/19, 2:36:50 PM, INFO]    7239  5546      594.0000   633                    594.0000  3595290         
+[5/6/19, 2:36:53 PM, INFO]    7338  5550      594.0000   416                    594.0000  3599016         
+[5/6/19, 2:36:56 PM, INFO]    7443  5647    infeasible                          594.0000  3649823         
+[5/6/19, 2:36:58 PM, INFO]    7515  5718    infeasible                          594.0000  3686637         
+[5/6/19, 2:37:01 PM, INFO]    7573  5906    infeasible                          594.0000  3802269         
+[5/6/19, 2:37:03 PM, INFO]    7608  5939      594.0000   727                    594.0000  3832392         
+[5/6/19, 2:37:06 PM, INFO]    7637  5782      594.0000   957                    594.0000  3726013         
+[5/6/19, 2:37:08 PM, INFO]    7662  5826      594.0000   644                    594.0000  3963731         
+[5/6/19, 2:37:11 PM, INFO]    7683  5834    infeasible                          594.0000  4003691         
+[5/6/19, 2:37:11 PM, INFO] Elapsed time = 244.95 sec. (125753.34 ticks, tree = 112.10 MB, solutions = 0)
+[5/6/19, 2:37:14 PM, INFO]    7703  5837      594.0000   607                    594.0000  3969839         
+[5/6/19, 2:37:18 PM, INFO]    7748  5878      594.0000   684                    594.0000  4058885         
+[5/6/19, 2:37:20 PM, INFO]    7823  5894      594.0000   695                    594.0000  4065524         
+[5/6/19, 2:37:23 PM, INFO]    7932  5902      594.0000   609                    594.0000  4102183         
+[5/6/19, 2:37:25 PM, INFO]    8067  5930      594.0000   611                    594.0000  4125583         
+[5/6/19, 2:37:26 PM, INFO]    8196  5946      594.0000   637                    594.0000  4123248         
+[5/6/19, 2:37:28 PM, INFO]    8339  6150      594.0000   583                    594.0000  4237932         
+[5/6/19, 2:37:30 PM, INFO]    8509  6179      594.0000   555                    594.0000  4247866         
+[5/6/19, 2:37:32 PM, INFO]    8651  6205      594.0000   668                    594.0000  4268788         
+[5/6/19, 2:37:39 PM, INFO]    9173  6701      594.0000   706                    594.0000  4532901         
+[5/6/19, 2:37:39 PM, INFO] Elapsed time = 273.57 sec. (138253.34 ticks, tree = 143.53 MB, solutions = 0)
+[5/6/19, 2:44:34 PM, INFO] *  9210+    0                          594.0000      594.0000             0.00%
+[5/6/19, 2:44:35 PM, INFO]    9210     0        cutoff            594.0000      594.0000  4872917    0.00%
+[5/6/19, 2:44:35 PM, INFO] GUB cover cuts applied:  40
+[5/6/19, 2:44:35 PM, INFO] Clique cuts applied:  1299
+[5/6/19, 2:44:35 PM, INFO] Cover cuts applied:  423
+[5/6/19, 2:44:35 PM, INFO] Implied bound cuts applied:  822
+[5/6/19, 2:44:35 PM, INFO] Flow cuts applied:  4
+[5/6/19, 2:44:35 PM, INFO] Mixed integer rounding cuts applied:  217
+[5/6/19, 2:44:35 PM, INFO] Zero-half cuts applied:  184
+[5/6/19, 2:44:35 PM, INFO] Gomory fractional cuts applied:  1
+[5/6/19, 2:44:35 PM, INFO] Root node processing (before b&c):
+[5/6/19, 2:44:35 PM, INFO]   Real time             =   48.71 sec. (32230.09 ticks)
+[5/6/19, 2:44:35 PM, INFO] Parallel b&c, 10 threads:
+[5/6/19, 2:44:35 PM, INFO]   Real time             =  639.87 sec. (383714.49 ticks)
+[5/6/19, 2:44:35 PM, INFO]   Sync time (average)   =   51.85 sec.
+[5/6/19, 2:44:35 PM, INFO]   Wait time (average)   =    0.02 sec.
+[5/6/19, 2:44:35 PM, INFO]                           ------------
+[5/6/19, 2:44:35 PM, INFO] Total (root+branch&cut) =  688.58 sec. (415944.58 ticks)
+[5/6/19, 2:44:35 PM, INFO] Total time spent in post processing: 0 msecs.
+[5/6/19, 2:44:35 PM, INFO] Solve finished with status: OPTIMAL_SOLUTION.

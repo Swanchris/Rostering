@@ -1,0 +1,116 @@
+Tried aggregator 1 time.
+MIP Presolve eliminated 965 rows and 3668 columns.
+MIP Presolve modified 14445 coefficients.
+Reduced MIP has 7212 rows, 12111 columns, and 51778 nonzeros.
+Reduced MIP has 12111 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.06 sec. (56.17 ticks)
+Probing fixed 264 vars, tightened 0 bounds.
+Probing time = 0.09 sec. (46.06 ticks)
+Tried aggregator 1 time.
+MIP Presolve eliminated 267 rows and 297 columns.
+Reduced MIP has 6945 rows, 11814 columns, and 50161 nonzeros.
+Reduced MIP has 11814 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.06 sec. (44.80 ticks)
+Probing time = 0.02 sec. (5.71 ticks)
+Clique table members: 29587.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 8 threads.
+Root relaxation solution time = 0.80 sec. (621.76 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+      0     0      594.0000  1487                    594.0000        0         
+      0     0      594.0000  1241                  Cuts: 1139     5113         
+      0     0      594.0000  1382                  Cuts: 1136    12027         
+      0     0      594.0000  1405                   Cuts: 914    20981         
+      0     2      594.0000   795                    594.0000    20991         
+Elapsed time = 73.48 sec. (38749.79 ticks, tree = 0.01 MB, solutions = 0)
+      1     3      594.0000   804                    594.0000    32002         
+      2     4      594.0000  1033                    594.0000    39650         
+      3     5      594.0000   989                    594.0000    45641         
+      6     8      594.0000   896                    594.0000    48083         
+      8    10      594.0000   901                    594.0000    48855         
+     11    13      594.0000   793                    594.0000    51497         
+     16    17      594.0000   811                    594.0000    53985         
+     23    20      594.0000   772                    594.0000    56544         
+     32    20      594.0000   606                    594.0000    61997         
+     74    15      594.0000   883                    594.0000    69361         
+Elapsed time = 93.25 sec. (51341.74 ticks, tree = 0.43 MB, solutions = 0)
+    102    98      594.0000   860                    594.0000   125951         
+    162   106      594.0000   776                    594.0000   135122         
+    266   194      594.0000   494                    594.0000   224385         
+    349   212      594.0000   726                    594.0000   232156         
+    369   342      594.0000   750                    594.0000   303315         
+    394   366      594.0000   677                    594.0000   318113         
+    441   377      594.0000   730                    594.0000   329484         
+    479   406      594.0000   687                    594.0000   342237         
+    495   417      594.0000   665                    594.0000   344843         
+    522   414      594.0000  1196                    594.0000   347633         
+Elapsed time = 121.19 sec. (61052.73 ticks, tree = 6.22 MB, solutions = 0)
+    566   467      594.0000   658                    594.0000   361695         
+    617   496      594.0000   621                    594.0000   368327         
+    652   522      594.0000   560                    594.0000   377842         
+    680   581      594.0000   558                    594.0000   389603         
+    753   604      594.0000   977                    594.0000   400601         
+    860   704      594.0000   697                    594.0000   425903         
+   1003   722      594.0000   594                    594.0000   426995         
+   1188   771      594.0000   475                    594.0000   439852         
+   1343  1025      594.0000   595                    594.0000   517727         
+   1511  1057      594.0000   477                    594.0000   529520         
+Elapsed time = 148.36 sec. (70672.89 ticks, tree = 21.49 MB, solutions = 0)
+   1654  1319      594.0000   322                    594.0000   620118         
+   1791  1551      594.0000   417                    594.0000   703794         
+   1921  1518      594.0000   507                    594.0000   693560         
+   2017  1808      594.0000   540                    594.0000   829861         
+   2114  1837      594.0000   433                    594.0000   842502         
+   2191  1948      594.0000   425                    594.0000   913954         
+   2305  1997      594.0000   571                    594.0000   931556         
+   2421  2055      594.0000   605                    594.0000   961073         
+   2493  2206      594.0000   758                    594.0000  1056120         
+   2607  2277      594.0000   462                    594.0000  1096649         
+Elapsed time = 177.03 sec. (80301.56 ticks, tree = 41.06 MB, solutions = 0)
+   2692  2343      594.0000   749                    594.0000  1160676         
+   2724  2421    infeasible                          594.0000  1202070         
+   2748  2489    infeasible                          594.0000  1251493         
+   2777  2485    infeasible                          594.0000  1320459         
+   2790  1833    infeasible                          594.0000   861062         
+   2811  2446    infeasible                          594.0000  1440131         
+   2838  2454      594.0000   632                    594.0000  1468771         
+   2862  2447      594.0000   786                    594.0000  1534461         
+   2888  2451      594.0000   756                    594.0000  1536282         
+   2921  2459      594.0000   545                    594.0000  1553043         
+Elapsed time = 207.58 sec. (90241.20 ticks, tree = 45.76 MB, solutions = 0)
+   2955  2478      594.0000   734                    594.0000  1613883         
+   2986  2490      594.0000   483                    594.0000  1629155         
+   3009  2522    infeasible                          594.0000  1666074         
+   3053  2526      594.0000   523                    594.0000  1670725         
+   3096  2549      594.0000   697                    594.0000  1676102         
+   3214  2606      594.0000   439                    594.0000  1762243         
+   3290  2629      594.0000   550                    594.0000  1777261         
+   3350  2720      594.0000   667                    594.0000  1827041         
+   3378  2720      594.0000   716                    594.0000  1836762         
+   3381  2627      594.0000   721                    594.0000  1778792         
+Elapsed time = 237.83 sec. (101463.93 ticks, tree = 60.61 MB, solutions = 0)
+   3383  2587      594.0000   621                    594.0000  1742821         
+*  3384+    0                          594.0000      594.0000             0.00%
+   3384     0        cutoff            594.0000      594.0000  1983724    0.00%
+
+GUB cover cuts applied:  14
+Clique cuts applied:  1310
+Cover cuts applied:  439
+Implied bound cuts applied:  876
+Flow cuts applied:  5
+Mixed integer rounding cuts applied:  221
+Zero-half cuts applied:  203
+Gomory fractional cuts applied:  1
+
+Root node processing (before b&c):
+  Real time             =   73.30 sec. (38609.65 ticks)
+Parallel b&c, 8 threads:
+  Real time             =  413.72 sec. (215013.00 ticks)
+  Sync time (average)   =   19.61 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  487.01 sec. (253622.66 ticks)

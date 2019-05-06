@@ -95,7 +95,7 @@ forall(i in Intern)
 
 //MIC (j=4)
 forall(i in Intern)
-  sum(k in Week)x[i][4][k] == 4;
+  sum(k in 1..49)x[i][4][k] == 4;
 
 //MCH (j=5)
 forall(i in Intern)
@@ -225,8 +225,8 @@ forall(i in Intern)
 forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 forall(i in Intern)
-  sum(k in 27..53)y4[i][k] ==1;
-forall(i in Intern, k in 27..53)
+  sum(k in 27..48)y4[i][k] ==1;
+forall(i in Intern, k in 27..48)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 
 
