@@ -127,7 +127,7 @@ forall(i in Intern)
 
 //QUM (j=12)  
 forall(i in Intern)
-  sum(k in 1..30)x[i][12][k] == 1;
+  sum(k in Week)x[i][12][k] == 1;
   
 //H (j=13)  
 forall(i in Intern)
@@ -141,13 +141,11 @@ forall(i in Intern)
 forall(k in Week)
   sum(i in Intern)x[i][1][k] <= 2;
   
-  ///NO INTERN GOES TO DANDENONG ALONE:
+  ///PAIRING OF GEN MED:
 forall(k in Week)
-  2 - (sum(i in Intern, j in 1..2)x[i][j][k]) <= M*D[k];
-forall(k in Week)
-  sum(i in 1..10)x[i][1][k] == 2*(1-D[k]);
-forall(i in Intern, k in Week)
-  sum(j in 1..2)x[i][j][k] <= M*(1-D[k]);
+  2 - (sum(i in 1..10)x[i][1][k]) <= M*D[k];
+forall(i in 1..10, k in Week)
+  x[i][1][k] <= M*(1-D[k]);
   
 
 //CPD-V (j=2)  

@@ -2,16 +2,12 @@
 	<version>1.0</version>
 	<configs>
 		<config default="true" name="Intern1" category="opl">
-			<ref name="intern_v6.1.mod" type="model">
+			<ref name="intern_v6.2.mod" type="model">
 			</ref>
 		</config>
 		<config default="false" name="Intern" category="opl">
-			<ref name="v5.3 tests/12.mod" type="model">
-			</ref>
 		</config>
 		<config default="false" name="tests" category="opl">
-			<ref name="v5.3 tests/18.mod" type="model">
-			</ref>
 		</config>
 	</configs>
 	

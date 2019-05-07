@@ -22,7 +22,6 @@ dvar boolean  y6[Intern][Week];
 dvar boolean  y7[Intern][Week];
 dvar boolean  y8[Intern][Week];
 dvar boolean  y9[Intern][Week];
-dvar boolean  y10[Intern][Week];
 dvar boolean  y11[Intern][Week];
 
 
@@ -141,13 +140,11 @@ forall(i in Intern)
 forall(k in Week)
   sum(i in Intern)x[i][1][k] <= 2;
   
-  ///NO INTERN GOES TO DANDENONG ALONE:
+  ///PAIRING OF GEN MED:
 forall(k in Week)
-  2 - (sum(i in Intern, j in 1..2)x[i][j][k]) <= M*D[k];
-forall(k in Week)
-  sum(i in 1..10)x[i][1][k] == 2*(1-D[k]);
-forall(i in Intern, k in Week)
-  sum(j in 1..2)x[i][j][k] <= M*(1-D[k]);
+  2 - (sum(i in 1..10)x[i][1][k]) <= M*D[k];
+forall(i in 1..10, k in Week)
+  x[i][1][k] <= M*(1-D[k]);
   
 
 //CPD-V (j=2)  
