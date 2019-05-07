@@ -141,10 +141,12 @@ forall(i in Intern)
 forall(k in Week)
   sum(i in Intern)x[i][1][k] <= 2;
 
-  
+forall(k in Week)
+  2 - (sum(i in 1..10)x[i][1][k]) <= M*D[k];
+    
   ///NO INTERN GOES TO DANDENONG ALONE:
 forall(k in Week)
-  2 - (sum(i in Intern, j in 1..2)x[i][j][k]) <= M*D[k];
+  2 - (sum(i in Intern)x[i][2][k] + x[11][1][k]) <= M*D[k];
 forall(i in Intern, k in Week)
   sum(j in 1..2)x[i][j][k] <= M*(1-D[k]);
   
