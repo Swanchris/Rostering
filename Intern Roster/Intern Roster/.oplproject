@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<configs>
 		<config default="true" name="Intern1" category="opl">
-			<ref name="intern_v6.mod" type="model">
+			<ref name="intern_v6.1.mod" type="model">
 			</ref>
 		</config>
 		<config default="false" name="Intern" category="opl">
