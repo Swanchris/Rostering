@@ -6,6 +6,8 @@
 			</ref>
 		</config>
 		<config default="false" name="Intern" category="opl">
+			<ref name="intern_v6.3.mod" type="model">
+			</ref>
 		</config>
 		<config default="false" name="tests" category="opl">
 		</config>

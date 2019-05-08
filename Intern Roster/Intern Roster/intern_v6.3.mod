@@ -122,7 +122,7 @@ forall(i in Intern)
 
 //CPC (j=11)  
 forall(i in Intern)
-  sum(k in 26..54)x[i][11][k] == 4;
+  sum(k in Week)x[i][11][k] == 4;
 
 //QUM (j=12)  
 forall(i in Intern)
@@ -167,15 +167,15 @@ forall(k in 9..30)
 
 //CPCa (j=6)  
 forall(k in Week)
-  sum(i in Intern)x[i][6][k] <= 1;  
+  sum(i in Intern)x[i][6][k] <= 2;  
 
 //CPM (j=7)   
 forall(k in Week)
-  sum(i in Intern)x[i][7][k] <= 1;
+  sum(i in Intern)x[i][7][k] <= 2;
 
 //CPK (j=8)  
 forall(k in Week)
-  sum(i in Intern)x[i][8][k] <= 1;
+  sum(i in Intern)x[i][8][k] <= 2;
 
 //IP (j=9) 
 forall(k in Week)
@@ -187,7 +187,7 @@ forall(k in Week)
 
 //CPC (j=11)  
 forall(k in Week)
-  sum(i in Intern)x[i][11][k] <= 4;
+  sum(i in Intern)x[i][11][k] <= 5;
 
 //QUM (j=12)    
 forall(k in Week)
