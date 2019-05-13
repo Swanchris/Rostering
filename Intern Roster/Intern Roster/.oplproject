@@ -2,10 +2,10 @@
 	<version>1.0</version>
 	<configs>
 		<config default="true" name="Intern1" category="opl">
-			<ref name="2020/intern_v7.2.mod" type="model">
-			</ref>
 		</config>
 		<config default="false" name="Intern" category="opl">
+			<ref name="2020/intern_v7.4.mod" type="model">
+			</ref>
 		</config>
 		<config default="false" name="tests" category="opl">
 		</config>
