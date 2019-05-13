@@ -167,15 +167,15 @@ forall(k in 9..30)
 
 //CPCa (j=6)  
 forall(k in Week)
-  sum(i in Intern)x[i][6][k] <= 2;  
+  sum(i in Intern)x[i][6][k] <= 1;  
 
 //CPM (j=7)   
 forall(k in Week)
-  sum(i in Intern)x[i][7][k] <= 2;
+  sum(i in Intern)x[i][7][k] <= 1;
 
 //CPK (j=8)  
 forall(k in Week)
-  sum(i in Intern)x[i][8][k] <= 2;
+  sum(i in Intern)x[i][8][k] <= 1;
 
 //IP (j=9) 
 forall(k in Week)
@@ -260,11 +260,7 @@ forall(i in Intern)
 forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
 
-//CPC (j=11)  
-forall(i in Intern)
-  sum(k in 1..51)y11[i][k] ==1;
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
+
 
 
 

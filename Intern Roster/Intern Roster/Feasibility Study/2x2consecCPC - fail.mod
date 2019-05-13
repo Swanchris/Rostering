@@ -262,11 +262,14 @@ forall(i in Intern, k in 1..51)
 
 //CPC (j=11)  
 forall(i in Intern)
-  sum(k in 1..51)y11[i][k] ==1;
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
+  sum(k in 1..39)y11[i][k] ==1;
+forall(i in Intern, k in 1..39)
+  2 -(sum(a in 0..1)x[i][11][k + a]) <= M*(1-y11[i][k]);
 
-
+forall(i in Intern)
+  sum(k in 41..53)y11[i][k] ==1;
+forall(i in Intern, k in 41..53)
+  2 -(sum(a in 0..1)x[i][11][k + a]) <= M*(1-y11[i][k]);
 
 //Intern Leave Constraints
 
