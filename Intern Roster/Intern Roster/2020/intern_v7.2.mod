@@ -4,10 +4,11 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
+ //correction of MIC duration restrictions
+  
 range Week = 1..54;
 range Intern = 1..11;
 range Rotation = 1..17;
-
 
 dvar boolean  x[Intern][Rotation][Week];
 
@@ -24,11 +25,9 @@ dvar boolean  y8[Intern][Week];
 dvar boolean  y9[Intern][Week];
 dvar boolean  y11[Intern][Week];
 
-
 dvar boolean  L1[Week];
 dvar boolean  L2[Week];
 dvar boolean  L3[Week];
-
 
 int       M = 1000;
 
@@ -133,7 +132,6 @@ forall(i in Intern)
   sum(k in 1..30)x[i][13][k] == 1;
 
 
-
 ///Intern Rotation Capacity Constraint
 
 //CPD-G (j=1)  
@@ -146,7 +144,6 @@ forall(k in Week)
 forall(i in 1..10, k in Week)
   x[i][1][k] <= M*(1-D[k]);
   
-
 //CPD-V (j=2)  
 forall(k in Week)
   sum(i in Intern)x[i][2][k] <= 1;  
@@ -220,21 +217,19 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 1..25)y4[i][k] ==1;
-forall(i in Intern, k in 1..25)
+  sum(k in 1..26)y4[i][k] ==1;
+forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 forall(i in Intern)
-  sum(k in 27..48)y4[i][k] ==1;
-forall(i in Intern, k in 27..48)
+  sum(k in 28..48)y4[i][k] ==1;
+forall(i in Intern, k in 28..48)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
-
 
 //MCH (j=5)  
 forall(i in Intern)
   sum(k in 1..53)y5[i][k] ==1;
 forall(i in Intern, k in 1..53)
   2 -(sum(a in 0..1)x[i][5][k + a]) <= M*(1-y5[i][k]);
-
 
 //CPCa (j=6)  
 forall(i in Intern)
@@ -267,7 +262,6 @@ forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
 
 
-
 //Intern Leave Constraints
 
 //"A holiday around April and a holiday around August"
@@ -279,59 +273,65 @@ forall(k in 14..26)
 
 //Week 2
 sum(k in 31..43)L2[k] ==1;
-
 forall(k in 31..43)
   sum(i in Intern)x[i][15][k] == 6*L2[k];
-
 sum(k in 31..43)L3[k] ==1;  
- 
 forall(k in 31..43)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
 
 
-//Avoidance Constraint (no one week rotations during seminar weeks/public holidays)
+//Avoidance Constraint (no one week rotations during seminar weeks/public holidays) - up until Week 30
 
+//Dec25, Dec26
+forall(i in Intern, j in 12..13)
+  x[i][j][4] ==0;
+
+//Jan1
 forall(i in Intern, j in 12..13)
   x[i][j][5] ==0;
 
+//Jan27
 forall(i in Intern, j in 12..13)
-  x[i][j][8] ==0;  
+  x[i][j][9] ==0;  
 
+//Seminar1
 forall(i in Intern, j in 12..13)
   x[i][j][11] ==0;
 
+//Mar9(LabourDay)
 forall(i in Intern, j in 12..13)
   x[i][j][15] ==0;
 
+//Apr10(GoodFriday)
 forall(i in Intern, j in 12..13)
-  x[i][j][17] ==0;
-
+  x[i][j][19] ==0;
+  
+//Apr13(EasterMonday)
 forall(i in Intern, j in 12..13)
-  x[i][j][18] ==0;
+  x[i][j][20] ==0;
 
-forall(i in Intern, j in 12..13)
-  x[i][j][21] ==0;
-
+//Seminar2
 forall(i in Intern, j in 12..13)
   x[i][j][26] ==0;
 
+//Jun8(QueensBirthday)
 forall(i in Intern, j in 12..13)
   x[i][j][28] ==0;
 
+//Seminar3
 forall(i in Intern, j in 12..13)
   x[i][j][33] ==0;
 
+//Seminar4+PotentialGrandFinalFriday
 forall(i in Intern, j in 12..13)
   x[i][j][43] ==0;
 
+//PotentialGrandFinalFriday
 forall(i in Intern, j in 12..13)
-  x[i][j][45] ==0;
+  x[i][j][44] ==0;
 
-forall(i in Intern, j in 12..13)
-  x[i][j][46] ==0;
-
+//Nov3(MelbCup)
 forall(i in Intern, j in 12..13)
   x[i][j][49] ==0;
-
 
 }

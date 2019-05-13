@@ -183,11 +183,11 @@ forall(k in Week)
 
 //DISP (j=10)    
 forall(k in Week)
-  sum(i in Intern)x[i][10][k] <= 3;
+  sum(i in Intern)x[i][10][k] <= 4;
 
 //CPC (j=11)  
 forall(k in Week)
-  sum(i in Intern)x[i][11][k] <= 5;
+  sum(i in Intern)x[i][11][k] <= 4;
 
 //QUM (j=12)    
 forall(k in Week)

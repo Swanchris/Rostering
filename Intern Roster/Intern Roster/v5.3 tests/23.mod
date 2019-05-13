@@ -22,6 +22,7 @@ dvar boolean  y6[Intern][Week];
 dvar boolean  y7[Intern][Week];
 dvar boolean  y8[Intern][Week];
 dvar boolean  y9[Intern][Week];
+dvar boolean  y10[Intern][Week];
 dvar boolean  y11[Intern][Week];
 
 
@@ -122,11 +123,11 @@ forall(i in Intern)
 
 //CPC (j=11)  
 forall(i in Intern)
-  sum(k in Week)x[i][11][k] == 4;
+  sum(k in 26..54)x[i][11][k] == 4;
 
 //QUM (j=12)  
 forall(i in Intern)
-  sum(k in 1..30)x[i][12][k] == 1;
+  sum(k in Week)x[i][12][k] == 1;
   
 //H (j=13)  
 forall(i in Intern)
@@ -167,15 +168,15 @@ forall(k in 9..30)
 
 //CPCa (j=6)  
 forall(k in Week)
-  sum(i in Intern)x[i][6][k] <= 2;  
+  sum(i in Intern)x[i][6][k] <= 1;  
 
 //CPM (j=7)   
 forall(k in Week)
-  sum(i in Intern)x[i][7][k] <= 2;
+  sum(i in Intern)x[i][7][k] <= 3;
 
 //CPK (j=8)  
 forall(k in Week)
-  sum(i in Intern)x[i][8][k] <= 2;
+  sum(i in Intern)x[i][8][k] <= 1;
 
 //IP (j=9) 
 forall(k in Week)
@@ -187,7 +188,7 @@ forall(k in Week)
 
 //CPC (j=11)  
 forall(k in Week)
-  sum(i in Intern)x[i][11][k] <= 5;
+  sum(i in Intern)x[i][11][k] <= 4;
 
 //QUM (j=12)    
 forall(k in Week)
@@ -220,8 +221,8 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 1..25)y4[i][k] ==1;
-forall(i in Intern, k in 1..25)
+  sum(k in 1..26)y4[i][k] ==1;
+forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 forall(i in Intern)
   sum(k in 27..48)y4[i][k] ==1;

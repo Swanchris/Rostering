@@ -4,35 +4,36 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
-range Week = 1..54;
-range Intern = 1..11;
-range Rotation = 1..17;
+range	Week = 1..54;
+range	Intern = 1..11;
+range	Rotation = 1..17;
 
 
-dvar boolean  x[Intern][Rotation][Week];
+dvar boolean	x[Intern][Rotation][Week];
 
-dvar boolean  D[Week];
+dvar boolean	D[Week];
 
-dvar boolean  y1[Intern][Week];
-dvar boolean  y2[Intern][Week];
-dvar boolean  y3[Intern][Week];
-dvar boolean  y4[Intern][Week];
-dvar boolean  y5[Intern][Week];
-dvar boolean  y6[Intern][Week];
-dvar boolean  y7[Intern][Week];
-dvar boolean  y8[Intern][Week];
-dvar boolean  y9[Intern][Week];
-dvar boolean  y11[Intern][Week];
-
-
-dvar boolean  L1[Week];
-dvar boolean  L2[Week];
-dvar boolean  L3[Week];
+dvar boolean	y1[Intern][Week];
+dvar boolean	y2[Intern][Week];
+dvar boolean	y3[Intern][Week];
+dvar boolean	y4[Intern][Week];
+dvar boolean	y5[Intern][Week];
+dvar boolean	y6[Intern][Week];
+dvar boolean	y7[Intern][Week];
+dvar boolean	y8[Intern][Week];
+dvar boolean	y9[Intern][Week];
+dvar boolean	y10[Intern][Week];
+dvar boolean	y11[Intern][Week];
 
 
-int       M = 1000;
+dvar boolean	L1[Week];
+dvar boolean	L2[Week];
+dvar boolean	L3[Week];
 
-dexpr int z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
+
+int				M = 1000;
+
+dexpr int	z = sum(i in Intern, j in Rotation, k in Week) x[i][j][k];
 
 minimize z;
 
@@ -94,7 +95,7 @@ forall(i in Intern)
 
 //MIC (j=4)
 forall(i in Intern)
-  sum(k in 1..49)x[i][4][k] == 4;
+  sum(k in Week)x[i][4][k] == 4;
 
 //MCH (j=5)
 forall(i in Intern)
@@ -122,7 +123,7 @@ forall(i in Intern)
 
 //CPC (j=11)  
 forall(i in Intern)
-  sum(k in Week)x[i][11][k] == 4;
+  sum(k in 26..54)x[i][11][k] == 4;
 
 //QUM (j=12)  
 forall(i in Intern)
@@ -139,12 +140,15 @@ forall(i in Intern)
 //CPD-G (j=1)  
 forall(k in Week)
   sum(i in Intern)x[i][1][k] <= 2;
-  
-  ///PAIRING OF GEN MED:
+
 forall(k in Week)
   2 - (sum(i in 1..10)x[i][1][k]) <= M*D[k];
-forall(i in 1..10, k in Week)
-  x[i][1][k] <= M*(1-D[k]);
+    
+  ///NO INTERN GOES TO DANDENONG ALONE:
+forall(k in Week)
+  2 - (sum(i in Intern)x[i][2][k] + x[11][1][k]) <= M*D[k];
+forall(i in Intern, k in Week)
+  sum(j in 1..2)x[i][j][k] <= M*(1-D[k]);
   
 
 //CPD-V (j=2)  
@@ -167,15 +171,15 @@ forall(k in 9..30)
 
 //CPCa (j=6)  
 forall(k in Week)
-  sum(i in Intern)x[i][6][k] <= 2;  
+  sum(i in Intern)x[i][6][k] <= 1;  
 
 //CPM (j=7)   
 forall(k in Week)
-  sum(i in Intern)x[i][7][k] <= 2;
+  sum(i in Intern)x[i][7][k] <= 3;
 
 //CPK (j=8)  
 forall(k in Week)
-  sum(i in Intern)x[i][8][k] <= 2;
+  sum(i in Intern)x[i][8][k] <= 1;
 
 //IP (j=9) 
 forall(k in Week)
@@ -187,7 +191,7 @@ forall(k in Week)
 
 //CPC (j=11)  
 forall(k in Week)
-  sum(i in Intern)x[i][11][k] <= 5;
+  sum(i in Intern)x[i][11][k] <= 4;
 
 //QUM (j=12)    
 forall(k in Week)
@@ -220,12 +224,12 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 1..25)y4[i][k] ==1;
-forall(i in Intern, k in 1..25)
+  sum(k in 1..26)y4[i][k] ==1;
+forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 forall(i in Intern)
-  sum(k in 27..48)y4[i][k] ==1;
-forall(i in Intern, k in 27..48)
+  sum(k in 27..53)y4[i][k] ==1;
+forall(i in Intern, k in 27..53)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 
 
@@ -259,6 +263,7 @@ forall(i in Intern)
   sum(k in 1..51)y9[i][k] ==1;
 forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
+
 
 //CPC (j=11)  
 forall(i in Intern)

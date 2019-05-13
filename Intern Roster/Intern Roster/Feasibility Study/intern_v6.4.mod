@@ -220,8 +220,8 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 1..25)y4[i][k] ==1;
-forall(i in Intern, k in 1..25)
+  sum(k in 1..26)y4[i][k] ==1;
+forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 forall(i in Intern)
   sum(k in 27..48)y4[i][k] ==1;

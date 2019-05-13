@@ -220,8 +220,8 @@ forall(i in Intern, k in 1..51)
 
 //MIC (j=4)    
 forall(i in Intern)
-  sum(k in 1..25)y4[i][k] ==1;
-forall(i in Intern, k in 1..25)
+  sum(k in 1..26)y4[i][k] ==1;
+forall(i in Intern, k in 1..26)
   2 -(sum(a in 0..1)x[i][4][k + a]) <= M*(1-y4[i][k]);
 forall(i in Intern)
   sum(k in 27..48)y4[i][k] ==1;
@@ -289,47 +289,57 @@ forall(k in 31..43)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
 
 
-//Avoidance Constraint (no one week rotations during seminar weeks/public holidays)
+//Avoidance Constraint (no one week rotations during seminar weeks/public holidays) - up until Week 30
 
+//Dec25, Dec26
+forall(i in Intern, j in 12..13)
+  x[i][j][4] ==0;
+
+//Jan1
 forall(i in Intern, j in 12..13)
   x[i][j][5] ==0;
 
+//Jan27
 forall(i in Intern, j in 12..13)
-  x[i][j][8] ==0;  
+  x[i][j][9] ==0;  
 
+//Seminar1
 forall(i in Intern, j in 12..13)
   x[i][j][11] ==0;
 
+//Mar9(LabourDay)
 forall(i in Intern, j in 12..13)
   x[i][j][15] ==0;
 
+//Apr10(GoodFriday)
 forall(i in Intern, j in 12..13)
-  x[i][j][17] ==0;
-
+  x[i][j][19] ==0;
+  
+//Apr13(EasterMonday)
 forall(i in Intern, j in 12..13)
-  x[i][j][18] ==0;
+  x[i][j][20] ==0;
 
-forall(i in Intern, j in 12..13)
-  x[i][j][21] ==0;
-
+//Seminar2
 forall(i in Intern, j in 12..13)
   x[i][j][26] ==0;
 
+//Jun8(QueensBirthday)
 forall(i in Intern, j in 12..13)
   x[i][j][28] ==0;
 
+//Seminar3
 forall(i in Intern, j in 12..13)
   x[i][j][33] ==0;
 
+//Seminar4+PotentialGrandFinalFriday
 forall(i in Intern, j in 12..13)
   x[i][j][43] ==0;
 
+//PotentialGrandFinalFriday
 forall(i in Intern, j in 12..13)
-  x[i][j][45] ==0;
+  x[i][j][44] ==0;
 
-forall(i in Intern, j in 12..13)
-  x[i][j][46] ==0;
-
+//Nov3(MelbCup)
 forall(i in Intern, j in 12..13)
   x[i][j][49] ==0;
 

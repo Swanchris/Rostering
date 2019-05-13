@@ -260,11 +260,7 @@ forall(i in Intern)
 forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][9][k + a]) <= M*(1-y9[i][k]);
 
-//CPC (j=11)  
-forall(i in Intern)
-  sum(k in 1..51)y11[i][k] ==1;
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
+
 
 
 
