@@ -4,7 +4,7 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
- //restrict 2nd leave to w37 and w38 + + relaxation of j = 6,7,8 to 2 (No Disp Duration)
+ //restrict 2nd leave to w37 and w38 + + relaxation of j = 6,7,8 to 2
   
 range Week = 1..54;
 range Intern = 1..11;
@@ -275,7 +275,7 @@ forall(k in 14..26)
 sum(k in 37..38)L2[k] ==1;
 forall(k in 37..38)
   sum(i in Intern)x[i][15][k] == 6*L2[k];
-sum(k in 37..38)L2[k] ==1;  
+sum(k in 37..38)L3[k] ==1;  
 forall(k in 37..38)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
 

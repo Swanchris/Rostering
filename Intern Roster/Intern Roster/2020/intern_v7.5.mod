@@ -5,6 +5,7 @@
  *********************************************/
  
  //Bring back Disp Duration + restrict 2nd leave to w37 and w38
+ //run time impractical
   
 range Week = 1..54;
 range Intern = 1..11;

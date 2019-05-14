@@ -4,7 +4,7 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
- //Bring back Disp Duration
+ //Bring back Disp Duration - run time >12 hours
   
 range Week = 1..54;
 range Intern = 1..11;
