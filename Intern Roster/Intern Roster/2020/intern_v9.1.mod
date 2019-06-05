@@ -4,7 +4,7 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
-//QUM 2 weeks, CPD-G 7 weeks, AP to finish by week 49
+//Just Clinical Competency
   
 range Week = 1..54;
 range Intern = 1..11;
@@ -85,11 +85,11 @@ forall(i in Intern, k in Week)
 
 //CPD-G (j=1)  
 forall(i in Intern)
-  sum(k in Week)x[i][1][k] == 7;
+  sum(k in Week)x[i][1][k] == 8;
 
 //CPD-V (j=2)  
 forall(i in Intern)
-  sum(k in Week)x[i][2][k] == 4;
+  sum(k in Week)x[i][2][k] == 3;
 
 //AP (j=3) 
 forall(i in Intern)
@@ -129,7 +129,7 @@ forall(i in Intern)
 
 //QUM (j=12)  
 forall(i in Intern)
-  sum(k in 1..29)x[i][12][k] == 2;
+  sum(k in 1..30)x[i][12][k] == 2;
   
 //H (j=13)  
 forall(i in Intern)
@@ -206,15 +206,15 @@ forall(k in Week)
 
 //CPD-G (j=1)  
 forall(i in Intern)
-  sum(k in 1..48)y1[i][k] ==1;
-forall(i in Intern, k in 1..48)
-  7 -(sum(a in 0..6)x[i][1][k + a]) <= M*(1-y1[i][k]);
+  sum(k in 1..47)y1[i][k] ==1;
+forall(i in Intern, k in 1..47)
+  8 -(sum(a in 0..7)x[i][1][k + a]) <= M*(1-y1[i][k]);
 
 //CPD-V (j=2)  
 forall(i in Intern)
-  sum(k in 1..51)y2[i][k] ==1;
-forall(i in Intern, k in 1..51)
-  4 -(sum(a in 0..3)x[i][2][k + a]) <= M*(1-y2[i][k]);
+  sum(k in 1..52)y2[i][k] ==1;
+forall(i in Intern, k in 1..52)
+  3 -(sum(a in 0..2)x[i][2][k + a]) <= M*(1-y2[i][k]);
 
 //AP (j=3) 
 forall(i in Intern)
@@ -277,26 +277,23 @@ forall(i in Intern, k in 1..51)
 
 //QUM (j=12)
 forall(i in Intern)
-  sum(k in 1..28)y12[i][k] ==1;
-forall(i in Intern, k in 1..28)
+  sum(k in 1..29)y12[i][k] ==1;
+forall(i in Intern, k in 1..29)
   2 - (sum(a in 0..1)x[i][12][k + a]) <= M*(1-y12[i][k]);
-
 
 //Intern Leave Constraints
 
 //"A holiday around April and a holiday around August"
 
 //Week 1
-sum(k in 19..27)L1[k] ==1; 
-forall(k in 19..27)
-  sum(i in Intern)x[i][14][k] == 11*L1[k];
+sum(i in Intern)x[i][14][21] == 11;
 
 //Week 2
-sum(k in 34..42)L2[k] ==1;
-forall(k in 34..42)
+sum(k in 37..38)L2[k] ==1;
+forall(k in 37..38)
   sum(i in Intern)x[i][15][k] == 6*L2[k];
-sum(k in 34..42)L3[k] ==1;  
-forall(k in 34..42)
+sum(k in 37..38)L3[k] ==1;  
+forall(k in 37..38)
   sum(i in Intern)x[i][16][k] == 5*L3[k];
 
 

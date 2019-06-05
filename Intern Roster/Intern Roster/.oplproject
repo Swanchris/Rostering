@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="ASCII"?><project>
 	<version>1.0</version>
 	<configs>
-		<config default="true" name="8.6" category="opl">
-			<ref name="2020/intern_v8.6.mod" type="model">
-			</ref>
-		</config>
-		<config default="false" name="8.7" category="opl">
-			<ref name="2020/intern_v8.7.mod" type="model">
-			</ref>
-		</config>
-		<config default="false" name="8.8" category="opl">
-			<ref name="2020/intern_v8.8.mod" type="model">
-			</ref>
-		</config>
-		<config default="false" name="8.9" category="opl">
-			<ref name="2020/intern_v8.9.mod" type="model">
+		<config default="true" name="Configuration1" category="opl">
+			<ref name="2020/intern_v9.1.mod" type="model">
 			</ref>
 		</config>
 	</configs>
