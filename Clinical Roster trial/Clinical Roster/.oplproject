@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?><project>
+	<version>1.0</version>
+	<configs>
+		<config default="false" name="Special Med" category="opl">
+			<ref name="Special Med/Spec_Med_v3.2.mod" type="model">
+			</ref>
+		</config>
+		<config default="false" name="Critical Care" category="opl">
+			<ref name="Critical Care/Crit_Care_v1.1.mod" type="model">
+			</ref>
+		</config>
+		<config default="false" name="Clinical" category="opl">
+			<ref name="Clinical_v0.1.1.mod" type="model">
+			</ref>
+		</config>
+		<config default="true" name="Clinical test" category="opl">
+			<ref name="Clinical_v0.1.2.mod" type="model">
+			</ref>
+		</config>
+	</configs>
+	
+</project>
