@@ -2,7 +2,7 @@
 	<version>1.0</version>
 	<configs>
 		<config default="true" name="Configuration1" category="opl">
-			<ref name="2020/intern_v9.2.mod" type="model">
+			<ref name="2020/intern_v9.3.mod" type="model">
 			</ref>
 		</config>
 	</configs>
