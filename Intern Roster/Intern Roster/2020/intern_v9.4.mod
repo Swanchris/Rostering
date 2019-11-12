@@ -4,7 +4,7 @@
  * Creation Date: 19 Mar 2019 at 5:03:48 pm
  *********************************************/
  
-//Just Clinical Competency
+//AP to also avoid Seminar Weeks
   
 range Week = 1..54;
 range Intern = 1..11;
@@ -240,8 +240,7 @@ forall(i in Intern, k in 28..48)
 forall(i in Intern)
   x[i][4][28] <= M*s[i];
 forall(i in Intern)
-  x[i][4][27] <= M*(1-s[i]);
-    
+  x[i][4][27] <= M*(1-s[i]); 
 
 //MCH (j=5)  
 forall(i in Intern)
@@ -280,11 +279,6 @@ forall(i in Intern, k in 1..51)
   4 -(sum(a in 0..3)x[i][11][k + a]) <= M*(1-y11[i][k]);
 
 
-
-
-
-
-
 //Intern Leave Constraints
 
 //"A holiday around April and a holiday around August"
@@ -319,6 +313,8 @@ forall(i in Intern, j in 12..13)
 //Seminar1
 forall(i in Intern, j in 12..13)
   x[i][j][11] ==0;
+forall(i in Intern)
+  x[i][3][11] ==0;
 
 //Mar9(LabourDay)
 forall(i in Intern, j in 12..13)
@@ -335,6 +331,8 @@ forall(i in Intern, j in 12..13)
 //Seminar2
 forall(i in Intern, j in 12..13)
   x[i][j][27] ==0;
+forall(i in Intern)
+  x[i][3][27] ==0;
 
 //Jun8(QueensBirthday)
 forall(i in Intern, j in 12..13)
@@ -343,14 +341,14 @@ forall(i in Intern, j in 12..13)
 //Seminar3
 forall(i in Intern, j in 12..13)
   x[i][j][34] ==0;
+forall(i in Intern)
+  x[i][3][34] ==0;
 
 //Seminar4+PotentialGrandFinalFriday
 forall(i in Intern, j in 12..13)
   x[i][j][44] ==0;
-
-//PotentialGrandFinalFriday
-forall(i in Intern, j in 12..13)
-  x[i][j][44] ==0;
+forall(i in Intern)
+  x[i][3][44] ==0;
 
 //Nov3(MelbCup)
 forall(i in Intern, j in 12..13)
